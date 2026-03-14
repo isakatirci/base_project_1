@@ -1,0 +1,7 @@
+C:\Users\isa\microservice\Chapter20\microservices\product-service\src\main\java\se\magnus\microservices\core\product\persistence\ProductEntity.java
+C:\Users\isa\microservice\Chapter20\microservices\product-service\src\main\java\se\magnus\microservices\core\product\persistence\ProductRepository.java
+C:\Users\isa\microservice\Chapter20\microservices\product-service\src\main\java\se\magnus\microservices\core\product\ProductServiceApplication.java
+C:\Users\isa\microservice\Chapter20\microservices\product-service\src\main\java\se\magnus\microservices\core\product\services\MessageProcessorConfig.java
+C:\Users\isa\microservice\Chapter20\microservices\product-service\src\main\java\se\magnus\microservices\core\product\services\ProductMapper.java
+C:\Users\isa\microservice\Chapter20\microservices\product-service\src\main\java\se\magnus\microservices\core\product\services\ProductServiceImpl.java
+C:\Users\isa\microservice\Chapter20\microservices\product-service\src\main\java\se\magnus\microservices\core\product\TracingConfig.java

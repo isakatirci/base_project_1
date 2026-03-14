@@ -1,0 +1,7 @@
+C:\Users\isa\microservice\Chapter20\microservices\review-service\src\main\java\se\magnus\microservices\core\review\persistence\ReviewEntity.java
+C:\Users\isa\microservice\Chapter20\microservices\review-service\src\main\java\se\magnus\microservices\core\review\persistence\ReviewRepository.java
+C:\Users\isa\microservice\Chapter20\microservices\review-service\src\main\java\se\magnus\microservices\core\review\ReviewServiceApplication.java
+C:\Users\isa\microservice\Chapter20\microservices\review-service\src\main\java\se\magnus\microservices\core\review\services\MessageProcessorConfig.java
+C:\Users\isa\microservice\Chapter20\microservices\review-service\src\main\java\se\magnus\microservices\core\review\services\ReviewMapper.java
+C:\Users\isa\microservice\Chapter20\microservices\review-service\src\main\java\se\magnus\microservices\core\review\services\ReviewServiceImpl.java
+C:\Users\isa\microservice\Chapter20\microservices\review-service\src\main\java\se\magnus\microservices\core\review\TracingConfig.java

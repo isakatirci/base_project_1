@@ -1,0 +1,11 @@
+se\magnus\microservices\composite\product\SecurityConfig.class
+se\magnus\microservices\composite\product\services\tracing\ObservationUtil.class
+se\magnus\microservices\composite\product\ProductCompositeServiceApplication.class
+se\magnus\microservices\composite\product\services\ProductCompositeServiceImpl.class
+se\magnus\microservices\composite\product\services\tracing\BuildInfoObservationFilter.class
+se\magnus\microservices\composite\product\ResilienceConfig.class
+se\magnus\microservices\composite\product\TracingConfig.class
+se\magnus\microservices\composite\product\OpenApiConfig.class
+se\magnus\microservices\composite\product\services\ProductCompositeIntegration.class
+se\magnus\microservices\composite\product\services\ProductCompositeIntegration$1.class
+se\magnus\microservices\composite\product\services\tracing\ObservationRegistryConfig.class

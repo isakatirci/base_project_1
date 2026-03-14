@@ -1,0 +1,9 @@
+se\magnus\microservices\core\product\persistence\ProductEntity.class
+se\magnus\microservices\core\product\services\MessageProcessorConfig$1.class
+se\magnus\microservices\core\product\services\MessageProcessorConfig.class
+se\magnus\microservices\core\product\TracingConfig.class
+se\magnus\microservices\core\product\persistence\ProductRepository.class
+se\magnus\microservices\core\product\services\ProductServiceImpl.class
+se\magnus\microservices\core\product\services\ProductMapper.class
+se\magnus\microservices\core\product\services\ProductMapperImpl.class
+se\magnus\microservices\core\product\ProductServiceApplication.class
