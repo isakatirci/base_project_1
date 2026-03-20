@@ -31,16 +31,16 @@ function Create-SpringProject {
 }
 
 Write-Host "Creating microservices..."
-Create-SpringProject -Folder "microservices" -Name "product-service" -GroupId "se.magnus.microservices.core.product" -PackageName "se.magnus.microservices.core.product" -Dependencies "actuator,webflux,data-mongodb-reactive,cloud-stream,amqp,kafka,distributed-tracing,prometheus,retry"
+Create-SpringProject -Folder "microservices" -Name "product-service" -GroupId "se.magnus.microservices.core.product" -PackageName "se.magnus.microservices.core.product" -Dependencies "actuator,webflux,data-mongodb-reactive,cloud-stream,amqp,kafka,distributed-tracing,prometheus"
 
-Create-SpringProject -Folder "microservices" -Name "review-service" -GroupId "se.magnus.microservices.core.review" -PackageName "se.magnus.microservices.core.review" -Dependencies "actuator,webflux,data-jpa,mysql,cloud-stream,amqp,kafka,distributed-tracing,prometheus,retry"
+Create-SpringProject -Folder "microservices" -Name "review-service" -GroupId "se.magnus.microservices.core.review" -PackageName "se.magnus.microservices.core.review" -Dependencies "actuator,webflux,data-jpa,mysql,cloud-stream,amqp,kafka,distributed-tracing,prometheus"
 
-Create-SpringProject -Folder "microservices" -Name "recommendation-service" -GroupId "se.magnus.microservices.core.recommendation" -PackageName "se.magnus.microservices.core.recommendation" -Dependencies "actuator,webflux,data-mongodb-reactive,cloud-stream,amqp,kafka,distributed-tracing,prometheus,retry"
+Create-SpringProject -Folder "microservices" -Name "recommendation-service" -GroupId "se.magnus.microservices.core.recommendation" -PackageName "se.magnus.microservices.core.recommendation" -Dependencies "actuator,webflux,data-mongodb-reactive,cloud-stream,amqp,kafka,distributed-tracing,prometheus"
 
-Create-SpringProject -Folder "microservices" -Name "product-composite-service" -GroupId "se.magnus.microservices.composite.product" -PackageName "se.magnus.microservices.composite.product" -Dependencies "actuator,webflux,security,oauth2-resource-server,cloud-stream,amqp,kafka,distributed-tracing,prometheus,retry"
+Create-SpringProject -Folder "microservices" -Name "product-composite-service" -GroupId "se.magnus.microservices.composite.product" -PackageName "se.magnus.microservices.composite.product" -Dependencies "actuator,webflux,security,oauth2-resource-server,cloud-stream,amqp,kafka,distributed-tracing,prometheus"
 
 Write-Host "Creating spring-cloud services..."
-Create-SpringProject -Folder "spring-cloud" -Name "gateway" -GroupId "se.magnus.springcloud" -PackageName "se.magnus.springcloud.gateway" -Dependencies "actuator,security,oauth2-resource-server,cloud-gateway,distributed-tracing,retry"
+Create-SpringProject -Folder "spring-cloud" -Name "gateway" -GroupId "se.magnus.springcloud" -PackageName "se.magnus.springcloud.gateway" -Dependencies "actuator,security,oauth2-resource-server,cloud-gateway,distributed-tracing"
 
 Create-SpringProject -Folder "spring-cloud" -Name "authorization-server" -GroupId "se.magnus.springcloud" -PackageName "se.magnus.springcloud.authorizationserver" -Dependencies "actuator,security,oauth2-authorization-server,distributed-tracing,prometheus"
 
