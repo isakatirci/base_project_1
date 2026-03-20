@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 20 - Video Transcript (Teleprompter)</title>
+  <style>
+    :root {
+      --bg: #0f172a;           /* Koyu lacivert/siyah arka plan */
+      --text: #f8fafc;         /* Açık renk ana metin */
+      --action-bg: #1e293b;    /* Kamera aksiyonları arka planı */
+      --action-border: #10b981;/* Kamera aksiyon sınır rengi (yeşil) */
+      --h-color: #38bdf8;      /* Başlık rengi (mavi) */
+      --pronounce-bg: #334155; /* Okunuş arkaplan rengi */
+      --pronounce-text: #94a3b8;/* Okunuş metin rengi */
+      --highlight: #f59e0b;    /* Önemli kelimeler için sarı */
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 1.4rem; /* Okumayı kolaylaştırmak için dev font */
+      padding: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* Scrollbar Tasarımı */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #475569; border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+    h1 {
+      text-align: center;
+      color: var(--h-color);
+      font-size: 3rem;
+      border-bottom: 2px solid #334155;
+      padding-bottom: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      color: var(--h-color);
+      margin-top: 4rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* Kamera / Eylem Yönergeleri */
+    .scene {
+      background: var(--action-bg);
+      border-left: 6px solid var(--action-border);
+      padding: 1.2rem 2rem;
+      border-radius: 6px;
+      font-style: italic;
+      color: #cbd5e1;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Asıl Konuşma Metni */
+    .speech {
+      margin-bottom: 3rem;
+    }
+
+    .speech p {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    /* Türkçe Okunuş Tag'i */
+    .pronounce {
+      background: var(--pronounce-bg);
+      color: var(--pronounce-text);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      margin-left: 6px;
+      user-select: none; /* Yanlışlıkla kopyalanmaması için */
+      display: inline-block;
+      transform: translateY(-2px);
+    }
+
+    /* Vurgulanacak Kelimeler (Sarı) */
+    .hl {
+      color: var(--highlight);
+      font-weight: 600;
+    }
+
+    /* Sona Eklenen Teleprompter Boşluğu */
+    .bottom-padding {
+      height: 60vh;
+    }
+
+    /* Prompter Yardımcı Çubuğu (Ortayı hizalamak için) */
+    .read-line {
+      position: fixed;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.1);
+      pointer-events: none;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ekranda okumayı hizalamak için hayalet çizgi -->
+  <div class="read-line"></div>
+
+  <h1>Kubernetes ve Spring Boot ile Sıfırdan Dev Mimarinin İnşası (Chapter 20)</h1>
+
+  <!-- BÖLÜM 1 -->
+  <h2>📌 1: Giriş ve Neden Buradayız? (Tahmini: 1 Dakika)</h2>
+  
+  <div class="scene">
+    🎬 Görüntü: Ekranda sen varsın. Gülümseyerek, rahat bir tavırla doğrudan kameraya bakarak konuşuyorsun.
+  </div>
+  
+  <div class="speech">
+    <p>Merhaba arkadaşlar, kanalıma hoş geldiniz! Ben [Kendi Adın]. Bugün, yazılım kariyerinizde size sınıf atlatacak, belki de mülakatlarda sizi diğer adayların önüne geçirecek çok özel bir projeye başlıyoruz. Chapter 20 <span class="pronounce">(Çep-tır Yirmi)</span> kod adını verdiğimiz bu bölümde, devasa bir mimariyi sıfırdan ayağa kaldıracağız.</p>
+
+    <p>Eğer orta seviyede Java <span class="pronounce">(Ca-va)</span> biliyorsanız ve Spring Boot <span class="pronounce">(Sip-ring But)</span> ile birkaç proje geliştirdiyseniz, muhtemelen tüm kodlarınızı tek bir proje içine sıkıştırdığınız <span class="hl">Monolitik</span> <span class="pronounce">(Mo-no-li-tik)</span> uygulamalar yapmışsınızdır. Monolitik yapı başlangıçta kolaydır ama proje büyüdükçe bir kabusa dönüşür. Ufacık bir değişiklik için bütün sistemi yeniden başlatmanız gerekir.</p>
+
+    <p>İşte bu yüzden, büyük teknoloji devlerinin kullandığı o modern yapıya, yani <span class="hl">Microservices</span> <span class="pronounce">(Mayk-ro-sör-vis-iz)</span> mimarisine geçiş yapıyoruz. Bu videoda; birbirinden tamamen bağımsız çalışan, kendi özel veritabanları olan ve Kubernetes <span class="pronounce">(Küber-ne-tis)</span> üzerinde devasa bir orkestra gibi çalışan servisler inşa edeceğiz. Hazırsanız, teknik detaylara dalalım!</p>
+  </div>
+
+  <!-- BÖLÜM 2 -->
+  <h2>📌 2: Projemizin Temeli: Spring Initializr (Tahmini: 1 Dakika)</h2>
+  
+  <div class="scene">
+    🎬 Görüntü: Ekran paylaşımı. VS Code veya IntelliJ IDEA açık. Ekranın bir köşesinde create-projects.ps1 dosyasının içi görünüyor.
+  </div>
+  
+  <div class="speech">
+    <p>İnşaata önce temelden başlayalım. Bir mikroservis projesinde, adı üzerinde, birçok ufak servis vardır. Bunları tek tek elle oluşturmak yerine, <span class="hl">create-projects.ps1</span> <span class="pronounce">(kri-yeyt pro-ceks pi-es-van)</span> adında bir kod parçası yani betik kullanıyoruz.</p>
+
+    <p>Bu betik, internetten Spring Boot'un en güncel versiyonunu kullanarak üç tane ana işçimizi otomatik indiriyor: <br>
+    Birincisi <span class="hl">product-service</span> <span class="pronounce">(Pro-dakt sör-vis)</span> yani Ürün servisimiz.<br>
+    İkincisi <span class="hl">review-service</span> <span class="pronounce">(Ri-vi-yuv sör-vis)</span> yani Yorum servisimiz.<br>
+    Ve üçüncüsü <span class="hl">recommendation-service</span> <span class="pronounce">(Re-ko-men-dey-şın sör-vis)</span> yani Öneri servisimiz.</p>
+
+    <p>Bu projelerin altyapısında WebFlux <span class="pronounce">(Veb-flaks)</span> kullandık. Peki neden WebFlux? Normal bir web sitesinde sistem bir müşteriyle ilgilenirken başkasını biraz bekletebilir. WebFlux ise sistemi <span class="hl">Reaktif</span> <span class="pronounce">(Re-ak-tif)</span> yapar. Yani arka planda asla tıkanma olmaz; binlerce isteği aynı anda, bekleme yapmadan asenkron olarak işler. Performansın sırrı buradadır.</p>
+  </div>
+
+  <!-- BÖLÜM 3 -->
+  <h2>📌 3: Veritabanları ve Mesajlaşma: Kafka (Tahmini: 1.5 Dakika)</h2>
+  
+  <div class="scene">
+    🎬 Görüntü: Kod tarafında application.yml dosyası veya Mimari.html şeması (Kafka ve Veritabanı okları) ekranda belirebilir.
+  </div>
+  
+  <div class="speech">
+    <p>Mikroservislerin altın kuralı şudur arkadaşlar: <span class="hl">Her servisin kendine ait özel bir veritabanı olmalıdır!</span> Kimse başkasının veritabanına doğrudan el uzatamaz.</p>
+
+    <p>Bu yüzden product ve recommendation servisleri için çok hızlı ve esnek olan MongoDB <span class="pronounce">(Mongo-di-bi)</span> kullanıyoruz. Ama review yani Yorum servisi için verilerin daha sıkı tutulduğu MySQL <span class="pronounce">(May-es-ku-el)</span> tercih ediyoruz. Mikroservisler bize 'Her iş için en iyi aracı kullanma' özgürlüğünü veriyor.</p>
+
+    <p>Peki bu servisler birbirleriyle nasıl anlaşacak? Sürekli REST API <span class="pronounce">(Rest Ey-pi-ay)</span> ile konuşurlarsa ve anlık bir kopukluk olursa sistem çöker. İşte burada devreye Kafka <span class="pronounce">(Kaf-ka)</span> gibi 'Mesaj Kuyruğu' sistemleri giriyor.</p>
+
+    <p>Kafka'yı devasa bir lojistik merkezi gibi düşünün. Bir servis diğerine veri gönderecekse onu Postaneye yani Kafka'ya bırakır. Hedef servis müsait olduğunda gider ve o veriyi alır. Bu <span class="hl">asenkron</span> <span class="pronounce">(a-sen-k-ron)</span> iletişim sayesinde bir servis çökse bile hiçbir veri kaybolmaz!</p>
+  </div>
+
+  <!-- BÖLÜM 4 -->
+  <h2>📌 4: Güvenlik Kapısı: OAuth2 ve API Gateway (Tahmini: 1 Dakika)</h2>
+  
+  <div class="scene">
+    🎬 Görüntü: API Gateway ve Authorization server klasörleri gösteriliyor. Veya Mimari.html üzerindeki güvenlik katmanı gösterilebilir.
+  </div>
+  
+  <div class="speech">
+    <p>Şimdi elimizde harika servisler var. Ama bunları dış dünyadaki tehlikelere doğrudan mı açacağız? Tabi ki hayır.</p>
+
+    <p>Mimarimizde dışarıdan gelen her mobil veya web isteği, devasa bir güvenlik kapımız olan API Gateway'e <span class="pronounce">(Ey-pi-ay Geyt-vey)</span> çarpar. Gateway tek başına yeterli değildir, kimlik kontrolü için OAuth2 <span class="pronounce">(O-ot-tu)</span> standartlarında çalışan bir yetkilendirme sunucumuz <span class="pronounce">(Oto-ri-zey-şın Sör-vır)</span> var.</p>
+
+    <p>Kullanıcı giriş yaptığında bu sunucu ona bir Token <span class="pronounce">(To-kın)</span> yani dijital bir bilet verir. Ziyaretçi API Gateway'e elindeki bu biletle gelirse kapılar açılır. Bileti yoksa veya süresi geçmişse sistem onu 401 Unauthorized <span class="pronounce">(An-oto-rayzd)</span> diyerek anında reddeder. Arka plandaki mikroservislerimiz böylece hiç yorulmadan, sadece güvenli kullanıcılara yalıtılmış bir odada hizmet verir.</p>
+  </div>
+
+  <!-- BÖLÜM 5 -->
+  <h2>📌 5: Orkestrasyonun Kalbi: Kubernetes (Tahmini: 3 Dakika)</h2>
+  
+  <div class="scene">
+    🎬 Görüntü: Sol taraftaki dosya ağacında kubernetes klasörünü açıyorsun. İçindeki helm, efk, grafana vb. alt klasörleri yavaşça gösteriyorsun.
+  </div>
+  
+  <div class="speech">
+    <p>Gelelim bu devasa projenin en muazzam yeri olan <span class="hl">kubernetes</span> klasörüne. Projeyi bilgisayarınızda bir iki komutla çalıştırabilirsiniz, ama gerçek dünyada Amazon'da veya Google Cloud'da çalıştırırken bize profesyonel araçlar gerekir. Bu klasörü adım adım inceleyelim:</p>
+
+    <p><span class="hl">Adım 1: Namespace</span> <br>
+    İlk olarak Kubernetes içinde kendimize özel bir Namespace <span class="pronounce">(Neym-is-peys)</span> yaratıyoruz. Bunu, devasa bir arsadaki kendimize ait etrafı çevrili bir bahçe gibi düşünün. Projemizin dosyaları bu yalıtılmış bahçenin içinde çalışacak ve hiçbir şey karmaşaya dönüşmeyecek.</p>
+
+    <p><span class="hl">Adım 2: Helm Klasörü</span> <br>
+    Burada helm <span class="pronounce">(Helm)</span> adında bir klasör görüyorsunuz. Helm, Kubernetes'in paket yöneticisidir. Eğer Helm kullanmasaydık, binlerce satırlık karmaşık YAML <span class="pronounce">(Yamıl)</span> dosyaları yazardık. Helm sayesinde veritabanlarımızı ve servislerimizi bir şablon gibi yönetip saniyeler içinde devasa kümeleri ayağa kaldırabiliyoruz.</p>
+
+    <p><span class="hl">Adım 3: Istio ve Service Mesh</span> <br>
+    Klasörde istio-telemetry dosyaları var. Istio <span class="pronounce">(İs-ti-yo)</span>, mimarimizin kalbine yerleşen bir Service Mesh <span class="pronounce">(Sör-vis Meş)</span> yani Hizmet ağıdır. Normalde Java kodlarının içine 'Bir hata olursa 3 kere tekrar dene!' gibi kodlar yazmamız gerekir. Fakat Istio sayesinde Java kodumuzu hiç kirletmiyoruz! Istio akıllı bir ağ katmanı oluşturuyor ve trafiği bizim yerimize yönetiyor.</p>
+
+    <p><span class="hl">Adım 4: Gözlemlenebilirlik (Grafana ve EFK Stack)</span> <br>
+    Devasa bir sistemimiz var ama arka planda ne oluyor? Bir hata çıkarsa 10 tane farklı makineye bağlanıp log mu okuyacağız? Hayır! Buradaki EFK klasörü yani Elasticsearch, Fluentd, Kibana; tüm servislerin loglarını tek bir merkezi ekranda toplar. <br>
+    Ayrıca grafana klasörü sayesinde sistemin RAM tüketimini, yanıt sürelerini tıpkı bir uzay üssü gibi anlık olarak eşzamanlı pasta grafiklerinden izleyebiliriz.</p>
+  </div>
+
+  <!-- BÖLÜM 6 -->
+  <h2>📌 6: Bütün Sistemi Otomatik Test Etmek (Tahmini: 1 Dakika)</h2>
+  
+  <div class="scene">
+    🎬 Görüntü: Terminali açıyorsun. Kubernetes podları arka planda çalışırken test-em-all.ps1 dosyasını çalıştırıp akan yeşil "Test OK" yazılarını izliyorsunuz.
+  </div>
+  
+  <div class="speech">
+    <p>Bu kadar parçayı birleştirdik. Sistemin doğru çalıştığını nasıl kanıtlayacağız? İşte projemizin final dokunuşu: <span class="hl">test-em-all.ps1</span> <span class="pronounce">(test em ol pi-es-van)</span>.</p>
+
+    <p>Bu PowerShell betiği bizim yerimize gece gündüz çalışan bir test uzmanı gibidir. Çalıştırdığımızda ilk iş olarak gider ve OAuth2 sunucusundan bir Token alır. Sonra durmaksızın Gateway üzerinden ürünlerimizi sorgular, silmeye çalışır.</p>
+
+    <p>En sevdiğim kısmı ise Devre Kesici yani <span class="hl">Circuit Breaker</span> testi yaptığı andır. Sistem bilerek yavaşlatılır. Eğer Istio ve Java devre kesicilerimiz doğru çalışıyorsa şalterler anında atar, sistem 'Fallback' <span class="pronounce">(Fol-bek)</span> dediğimiz varsayılan güvenli koruma yanıtını döndürür. Eğer terminalinizde benimki gibi tüm satırlar yeşil renkte 'Test OK' diyorsa, saniyede binlerce isteği kaldıracak o dev mimari kusursuz çalışıyor demektir!</p>
+  </div>
+
+  <!-- BÖLÜM 7 -->
+  <h2>📌 7: Kapanış ve Teşekkür (Tahmini: 0.5 Dakika)</h2>
+  
+  <div class="scene">
+    🎬 Görüntü: Tam ekranda yeniden sen varsın, samimi ve motive edici bir şekilde el hareketleriyle kapatıyorsun.
+  </div>
+  
+  <div class="speech">
+    <p>Evet arkadaşlar, 10 dakika gibi kısa bir sürede eski yapılardan kurtulup; Kafka ile mesajlaşan, Istio ile korunan, Helm ve Kubernetes üzerinde orkestra gibi çalışan, Grafana üzerinde izlenen destansı bir mikroservis yapısını birlikte inşa ettik.</p>
+
+    <p>Burada anlattığım teknolojiler, bugün dev teknoloji şirketlerinin iş görüşmelerinde sizden duymak istedikleri gerçek dünyadaki çözümleridir.</p>
+
+    <p>Hazırladığım bu içeriklerin devamının gelmesini istiyorsanız videoyu beğenmeyi, projeyi kurarken aldığınız hataları yorumlarda sormayı ve kanala abone olmayı lütfen unutmayın! Projenin tüm kodlarına açıklamadaki GitHub <span class="pronounce">(Git-hab)</span> linkinden ulaşabilirsiniz. Bir sonraki bölümde görüşmek üzere, kodla kalın, hoşçakalın!</p>
+  </div>
+
+  <div class="bottom-padding"></div> <!-- Prompter bitince yazi asagida kalmasin diye ekstra bosluk -->
+
+</body>
+</html>
