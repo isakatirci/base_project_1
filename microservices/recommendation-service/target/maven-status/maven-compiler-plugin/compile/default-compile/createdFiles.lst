@@ -1,9 +1,0 @@
-se\magnus\microservices\core\recommendation\services\RecommendationMapperImpl.class
-se\magnus\microservices\core\recommendation\persistence\RecommendationEntity.class
-se\magnus\microservices\core\recommendation\services\MessageProcessorConfig$1.class
-se\magnus\microservices\core\recommendation\services\RecommendationServiceImpl.class
-se\magnus\microservices\core\recommendation\RecommendationServiceApplication.class
-se\magnus\microservices\core\recommendation\services\RecommendationMapper.class
-se\magnus\microservices\core\recommendation\TracingConfig.class
-se\magnus\microservices\core\recommendation\persistence\RecommendationRepository.class
-se\magnus\microservices\core\recommendation\services\MessageProcessorConfig.class

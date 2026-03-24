@@ -1,9 +1,0 @@
-se\magnus\microservices\core\review\persistence\ReviewEntity.class
-se\magnus\microservices\core\review\services\MessageProcessorConfig.class
-se\magnus\microservices\core\review\TracingConfig.class
-se\magnus\microservices\core\review\persistence\ReviewRepository.class
-se\magnus\microservices\core\review\services\ReviewServiceImpl.class
-se\magnus\microservices\core\review\services\ReviewMapperImpl.class
-se\magnus\microservices\core\review\services\ReviewMapper.class
-se\magnus\microservices\core\review\ReviewServiceApplication.class
-se\magnus\microservices\core\review\services\MessageProcessorConfig$1.class
