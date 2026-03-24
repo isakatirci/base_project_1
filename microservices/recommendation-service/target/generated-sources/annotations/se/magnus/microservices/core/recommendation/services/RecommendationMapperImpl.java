@@ -9,8 +9,8 @@ import se.magnus.microservices.core.recommendation.persistence.RecommendationEnt
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-03-14T14:01:34+0300",
-    comments = "version: 1.6.3, compiler: javac, environment: Java 21.0.10 (Eclipse Adoptium)"
+    date = "2026-03-24T13:03:28+0300",
+    comments = "version: 1.6.3, compiler: Eclipse JDT (IDE) 3.45.0.v20260224-0835, environment: Java 21.0.10 (Eclipse Adoptium)"
 )
 @Component
 public class RecommendationMapperImpl implements RecommendationMapper {

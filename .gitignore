@@ -35,3 +35,13 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Claude ###
+CLAUDE.local.md
+.claude/settings.local.json
+.claude/placeholder.txt
+.claude/commands/placeholder.txt
+.claude/rules/placeholder.txt
+.claude/skills/placeholder.txt
+.claude/agents/placeholder.txt
+/target/
