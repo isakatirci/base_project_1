@@ -3,36 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 20 - Video Transcript (Teleprompter)</title>
+  <title>Microservices Masterclass - Tam Video Transkripti</title>
   <style>
     :root {
-      --bg: #0f172a;           /* Koyu lacivert/siyah arka plan */
-      --text: #f8fafc;         /* Açık renk ana metin */
-      --action-bg: #1e293b;    /* Kamera aksiyonları arka planı */
-      --action-border: #10b981;/* Kamera aksiyon sınır rengi (yeşil) */
-      --h-color: #38bdf8;      /* Başlık rengi (mavi) */
-      --pronounce-bg: #334155; /* Okunuş arkaplan rengi */
-      --pronounce-text: #94a3b8;/* Okunuş metin rengi */
-      --highlight: #f59e0b;    /* Önemli kelimeler için sarı */
+      --bg: #0f172a;
+      --text: #f8fafc;
+      --action-bg: #1e293b;
+      --action-border: #10b981;
+      --h-color: #38bdf8;
+      --pronounce-bg: #334155;
+      --pronounce-text: #94a3b8;
+      --highlight: #f59e0b;
     }
-
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       background-color: var(--bg);
       color: var(--text);
       line-height: 1.8;
-      font-size: 1.4rem; /* Okumayı kolaylaştırmak için dev font */
+      font-size: 1.4rem;
       padding: 3rem;
       max-width: 1000px;
       margin: 0 auto;
     }
-
-    /* Scrollbar Tasarımı */
     ::-webkit-scrollbar { width: 10px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: #475569; border-radius: 5px; }
     ::-webkit-scrollbar-thumb:hover { background: #64748b; }
-
     h1 {
       text-align: center;
       color: var(--h-color);
@@ -41,7 +37,6 @@
       padding-bottom: 1.5rem;
       margin-bottom: 3rem;
     }
-
     h2 {
       font-size: 2.2rem;
       color: var(--h-color);
@@ -51,8 +46,6 @@
       align-items: center;
       gap: 15px;
     }
-
-    /* Kamera / Eylem Yönergeleri */
     .scene {
       background: var(--action-bg);
       border-left: 6px solid var(--action-border);
@@ -63,181 +56,460 @@
       font-size: 1.2rem;
       margin-bottom: 2rem;
     }
-
-    /* Asıl Konuşma Metni */
-    .speech {
-      margin-bottom: 3rem;
-    }
-
-    .speech p {
-      margin-bottom: 1.5rem;
-      text-align: left;
-    }
-
-    /* Türkçe Okunuş Tag'i */
+    .speech { margin-bottom: 3rem; }
+    .speech p { margin-bottom: 1.5rem; text-align: left; }
     .pronounce {
       background: var(--pronounce-bg);
       color: var(--pronounce-text);
       padding: 2px 8px;
       border-radius: 6px;
       font-size: 1.1rem;
-      margin-left: 6px;
-      user-select: none; /* Yanlışlıkla kopyalanmaması için */
+      margin-left: 4px;
+      user-select: none;
       display: inline-block;
       transform: translateY(-2px);
     }
-
-    /* Vurgulanacak Kelimeler (Sarı) */
-    .hl {
-      color: var(--highlight);
-      font-weight: 600;
-    }
-
-    /* Sona Eklenen Teleprompter Boşluğu */
-    .bottom-padding {
-      height: 60vh;
-    }
-
-    /* Prompter Yardımcı Çubuğu (Ortayı hizalamak için) */
+    .hl { color: var(--highlight); font-weight: 600; }
+    .bottom-padding { height: 60vh; }
     .read-line {
-      position: fixed;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: rgba(255, 255, 255, 0.1);
-      pointer-events: none;
-      z-index: 100;
+      position: fixed; top: 50%; left: 0; width: 100%;
+      height: 2px; background: rgba(255,255,255,0.1);
+      pointer-events: none; z-index: 100;
     }
   </style>
 </head>
 <body>
+<div class="read-line"></div>
 
-  <!-- Ekranda okumayı hizalamak için hayalet çizgi -->
-  <div class="read-line"></div>
+<h1>Sıfırdan Enterprise Microservices Mimarisini İnşa Ediyoruz</h1>
 
-  <h1>Kubernetes ve Spring Boot ile Sıfırdan Dev Mimarinin İnşası (Chapter 20)</h1>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 1 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 1 — Giriş: Neden Microservices? (00:00 – 05:00)</h2>
 
-  <!-- BÖLÜM 1 -->
-  <h2>📌 1: Giriş ve Neden Buradayız? (Tahmini: 1 Dakika)</h2>
-  
-  <div class="scene">
-    🎬 Görüntü: Ekranda sen varsın. Gülümseyerek, rahat bir tavırla doğrudan kameraya bakarak konuşuyorsun.
-  </div>
-  
-  <div class="speech">
-    <p>Merhaba arkadaşlar, kanalıma hoş geldiniz! Ben [Kendi Adın]. Bugün, yazılım kariyerinizde size sınıf atlatacak, belki de mülakatlarda sizi diğer adayların önüne geçirecek çok özel bir projeye başlıyoruz. Chapter 20 <span class="pronounce">(Çep-tır Yirmi)</span> kod adını verdiğimiz bu bölümde, devasa bir mimariyi sıfırdan ayağa kaldıracağız.</p>
+<div class="scene">
+  🎬 Kamera sana dönük. Arkanda ekranda bomboş bir 'base_project_1' klasörü açık duruyor.
+</div>
 
-    <p>Eğer orta seviyede Java <span class="pronounce">(Ca-va)</span> biliyorsanız ve Spring Boot <span class="pronounce">(Sip-ring But)</span> ile birkaç proje geliştirdiyseniz, muhtemelen tüm kodlarınızı tek bir proje içine sıkıştırdığınız <span class="hl">Monolitik</span> <span class="pronounce">(Mo-no-li-tik)</span> uygulamalar yapmışsınızdır. Monolitik yapı başlangıçta kolaydır ama proje büyüdükçe bir kabusa dönüşür. Ufacık bir değişiklik için bütün sistemi yeniden başlatmanız gerekir.</p>
+<div class="speech">
+  <p>Herkese merhaba! Bu devasa masterclass eğitimine hoş geldiniz. Bugün, tamamen boş bir klasörden başlayarak sektörel standartlarda çalışan bir <span class="hl">Enterprise Microservices</span> <span class="pronounce">(En-tır-pı-rayz Mayk-ro-sör-vis-iz)</span> mimarisi kuracağız. Arkamda gördüğünüz bu bomboş klasör, bu eğitim bittiğinde on katmanlık dev bir yazılım altyapısına dönüşmüş olacak.</p>
 
-    <p>İşte bu yüzden, büyük teknoloji devlerinin kullandığı o modern yapıya, yani <span class="hl">Microservices</span> <span class="pronounce">(Mayk-ro-sör-vis-iz)</span> mimarisine geçiş yapıyoruz. Bu videoda; birbirinden tamamen bağımsız çalışan, kendi özel veritabanları olan ve Kubernetes <span class="pronounce">(Küber-ne-tis)</span> üzerinde devasa bir orkestra gibi çalışan servisler inşa edeceğiz. Hazırsanız, teknik detaylara dalalım!</p>
-  </div>
+  <p>Bugüne kadar sadece küçük projeler yaptıysanız, muhtemelen tüm kodlarınızı, dosyalarınızı ve ayarlarınızı tek bir klasöre yığdığınız <span class="hl">Monolithic Architecture</span> <span class="pronounce">(Mo-no-li-tik Ar-ki-tek-çır)</span> kullandınız. Bunu bir apartman gibi düşünebilirsiniz: bodrum katında mutfak, en üst katta yatak odası, ortada oturma odası. Bunların hepsi tek bir bina içinde. Eğer mutfakta bir su borusu patlarsa, tüm binayı tahliye etmeniz gerekir. Yazılımda da aynısı olur. Bir satır kodda yapılan hata, tüm sistemi çökertir.</p>
 
-  <!-- BÖLÜM 2 -->
-  <h2>📌 2: Projemizin Temeli: Spring Initializr (Tahmini: 1 Dakika)</h2>
-  
-  <div class="scene">
-    🎬 Görüntü: Ekran paylaşımı. VS Code veya IntelliJ IDEA açık. Ekranın bir köşesinde create-projects.ps1 dosyasının içi görünüyor.
-  </div>
-  
-  <div class="speech">
-    <p>İnşaata önce temelden başlayalım. Bir mikroservis projesinde, adı üzerinde, birçok ufak servis vardır. Bunları tek tek elle oluşturmak yerine, <span class="hl">create-projects.ps1</span> <span class="pronounce">(kri-yeyt pro-ceks pi-es-van)</span> adında bir kod parçası yani betik kullanıyoruz.</p>
+  <p>Peki Netflix, Uber, Spotify gibi dev şirketler bu sorunu nasıl çözdü? Sistemi küçük, birbirinden bağımsız parçalara böldüler. Her parça kendi başına çalışır, kendi veritabanı vardır ve bir parça çökse bile geri kalanı sapasağlam ayakta durur. Bu yaklaşıma <span class="hl">Microservices Architecture</span> <span class="pronounce">(Mayk-ro-sör-vis-iz Ar-ki-tek-çır)</span> denir.</p>
 
-    <p>Bu betik, internetten Spring Boot'un en güncel versiyonunu kullanarak üç tane ana işçimizi otomatik indiriyor: <br>
-    Birincisi <span class="hl">product-service</span> <span class="pronounce">(Pro-dakt sör-vis)</span> yani Ürün servisimiz.<br>
-    İkincisi <span class="hl">review-service</span> <span class="pronounce">(Ri-vi-yuv sör-vis)</span> yani Yorum servisimiz.<br>
-    Ve üçüncüsü <span class="hl">recommendation-service</span> <span class="pronounce">(Re-ko-men-dey-şın sör-vis)</span> yani Öneri servisimiz.</p>
+  <p>Bu eğitimde sadece servisleri bölmekle kalmayacağız. Aralarına asenkron iletişim için <span class="hl">RabbitMQ</span> <span class="pronounce">(Re-bit-em-kyu)</span> ve <span class="hl">Kafka</span> <span class="pronounce">(Kaf-ka)</span> gibi bir <span class="hl">Message Broker</span> <span class="pronounce">(Me-sıc Bro-kır)</span> koyacağız. Güvenlik için bir <span class="hl">API Gateway</span> <span class="pronounce">(Ey-pi-ay Geyt-vey)</span> kuracağız. Kimlik doğrulama için <span class="hl">OAuth2</span> <span class="pronounce">(O-ot-tu)</span> standardını uygulayacağız. Hata toleransı için <span class="hl">Circuit Breaker</span> <span class="pronounce">(Sör-kıt Brey-kır)</span> mekanizması ekleyeceğiz. Ve en sonunda tüm sistemi <span class="hl">Kubernetes</span> <span class="pronounce">(Ku-bır-ne-tis)</span> üzerinde çalıştıracağız. Hazırsanız hemen başlayalım!</p>
+</div>
 
-    <p>Bu projelerin altyapısında WebFlux <span class="pronounce">(Veb-flaks)</span> kullandık. Peki neden WebFlux? Normal bir web sitesinde sistem bir müşteriyle ilgilenirken başkasını biraz bekletebilir. WebFlux ise sistemi <span class="hl">Reaktif</span> <span class="pronounce">(Re-ak-tif)</span> yapar. Yani arka planda asla tıkanma olmaz; binlerce isteği aynı anda, bekleme yapmadan asenkron olarak işler. Performansın sırrı buradadır.</p>
-  </div>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 2 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 2 — Teknoloji Yığını ve Büyük Resim (05:00 – 10:00)</h2>
 
-  <!-- BÖLÜM 3 -->
-  <h2>📌 3: Veritabanları ve Mesajlaşma: Kafka (Tahmini: 1.5 Dakika)</h2>
-  
-  <div class="scene">
-    🎬 Görüntü: Kod tarafında application.yml dosyası veya Mimari.html şeması (Kafka ve Veritabanı okları) ekranda belirebilir.
-  </div>
-  
-  <div class="speech">
-    <p>Mikroservislerin altın kuralı şudur arkadaşlar: <span class="hl">Her servisin kendine ait özel bir veritabanı olmalıdır!</span> Kimse başkasının veritabanına doğrudan el uzatamaz.</p>
+<div class="scene">
+  🎬 Ekrana proje mimarisini çizdiğin bir şema geliyor. Her kutuyu tek tek işaret ediyorsun.
+</div>
 
-    <p>Bu yüzden product ve recommendation servisleri için çok hızlı ve esnek olan MongoDB <span class="pronounce">(Mongo-di-bi)</span> kullanıyoruz. Ama review yani Yorum servisi için verilerin daha sıkı tutulduğu MySQL <span class="pronounce">(May-es-ku-el)</span> tercih ediyoruz. Mikroservisler bize 'Her iş için en iyi aracı kullanma' özgürlüğünü veriyor.</p>
+<div class="speech">
+  <p>Kodlamaya başlamadan önce, bugün kullanacağımız teknolojileri kısaca tanıyalım. Böylece neden hangi aracı seçtiğimizi anlayacaksınız.</p>
 
-    <p>Peki bu servisler birbirleriyle nasıl anlaşacak? Sürekli REST API <span class="pronounce">(Rest Ey-pi-ay)</span> ile konuşurlarsa ve anlık bir kopukluk olursa sistem çöker. İşte burada devreye Kafka <span class="pronounce">(Kaf-ka)</span> gibi 'Mesaj Kuyruğu' sistemleri giriyor.</p>
+  <p>Birincisi: <span class="hl">Java 21</span> <span class="pronounce">(Ca-va Yir-mi-bir)</span>. Java, dünyada en çok kullanılan programlama dillerinden biridir. Biz en güncel sürümü olan 21'i kullanacağız çünkü içinde Virtual Threads <span class="pronounce">(Vör-çu-ıl Tıredz)</span> gibi modern özellikler var.</p>
 
-    <p>Kafka'yı devasa bir lojistik merkezi gibi düşünün. Bir servis diğerine veri gönderecekse onu Postaneye yani Kafka'ya bırakır. Hedef servis müsait olduğunda gider ve o veriyi alır. Bu <span class="hl">asenkron</span> <span class="pronounce">(a-sen-k-ron)</span> iletişim sayesinde bir servis çökse bile hiçbir veri kaybolmaz!</p>
-  </div>
+  <p>İkincisi: <span class="hl">Spring Boot 3.5</span> <span class="pronounce">(Sipring But)</span>. Spring Boot, Java ile web uygulaması yazmayı inanılmaz kolaylaştıran bir Framework <span class="pronounce">(Freym-vörk)</span> yani çatıdır. Normalde bir web sunucusu kurmak için yüzlerce satır ayar yazmanız gerekir. Spring Boot bunu sizin yerinize otomatik yapar. Siz sadece iş mantığına odaklanırsınız.</p>
 
-  <!-- BÖLÜM 4 -->
-  <h2>📌 4: Güvenlik Kapısı: OAuth2 ve API Gateway (Tahmini: 1 Dakika)</h2>
-  
-  <div class="scene">
-    🎬 Görüntü: API Gateway ve Authorization server klasörleri gösteriliyor. Veya Mimari.html üzerindeki güvenlik katmanı gösterilebilir.
-  </div>
-  
-  <div class="speech">
-    <p>Şimdi elimizde harika servisler var. Ama bunları dış dünyadaki tehlikelere doğrudan mı açacağız? Tabi ki hayır.</p>
+  <p>Üçüncüsü: <span class="hl">Spring WebFlux</span> <span class="pronounce">(Sipring Veb-flaks)</span>. Bu, Spring Boot'un içindeki özel bir modüldür. Klasik Spring MVC <span class="pronounce">(Em-vi-si)</span> yerine bunu kullanıyoruz çünkü <span class="hl">Reactive Programming</span> <span class="pronounce">(Ri-yek-tiv Program-ing)</span> yapıyoruz. Birazdan ne demek olduğunu detaylıca anlatacağım.</p>
 
-    <p>Mimarimizde dışarıdan gelen her mobil veya web isteği, devasa bir güvenlik kapımız olan API Gateway'e <span class="pronounce">(Ey-pi-ay Geyt-vey)</span> çarpar. Gateway tek başına yeterli değildir, kimlik kontrolü için OAuth2 <span class="pronounce">(O-ot-tu)</span> standartlarında çalışan bir yetkilendirme sunucumuz <span class="pronounce">(Oto-ri-zey-şın Sör-vır)</span> var.</p>
+  <p>Dördüncüsü: <span class="hl">Maven</span> <span class="pronounce">(Mey-vın)</span>. Projemizin bağımlılıklarını yöneten araçtır. Tıpkı bir mutfak alışveriş listesi gibi. "Bana şu kütüphaneyi getir, bu versiyondan" dersiniz, Maven internetten indirip projenize ekler.</p>
 
-    <p>Kullanıcı giriş yaptığında bu sunucu ona bir Token <span class="pronounce">(To-kın)</span> yani dijital bir bilet verir. Ziyaretçi API Gateway'e elindeki bu biletle gelirse kapılar açılır. Bileti yoksa veya süresi geçmişse sistem onu 401 Unauthorized <span class="pronounce">(An-oto-rayzd)</span> diyerek anında reddeder. Arka plandaki mikroservislerimiz böylece hiç yorulmadan, sadece güvenli kullanıcılara yalıtılmış bir odada hizmet verir.</p>
-  </div>
+  <p>Beşincisi: <span class="hl">Docker</span> <span class="pronounce">(Do-kır)</span>. Veritabanlarınızı, mesaj kuyruklarınızı ve servislerinizi bilgisayarınıza kurmadan, izole kutucuklar içinde çalıştırmanızı sağlar. Bu kutucuklara <span class="hl">Container</span> <span class="pronounce">(Kın-tey-nır)</span> denir.</p>
 
-  <!-- BÖLÜM 5 -->
-  <h2>📌 5: Orkestrasyonun Kalbi: Kubernetes (Tahmini: 3 Dakika)</h2>
-  
-  <div class="scene">
-    🎬 Görüntü: Sol taraftaki dosya ağacında kubernetes klasörünü açıyorsun. İçindeki helm, efk, grafana vb. alt klasörleri yavaşça gösteriyorsun.
-  </div>
-  
-  <div class="speech">
-    <p>Gelelim bu devasa projenin en muazzam yeri olan <span class="hl">kubernetes</span> klasörüne. Projeyi bilgisayarınızda bir iki komutla çalıştırabilirsiniz, ama gerçek dünyada Amazon'da veya Google Cloud'da çalıştırırken bize profesyonel araçlar gerekir. Bu klasörü adım adım inceleyelim:</p>
+  <p>Altıncısı: <span class="hl">MongoDB</span> <span class="pronounce">(Mon-go-di-bi)</span> ve <span class="hl">MySQL</span> <span class="pronounce">(May-es-ku-el)</span>. İki farklı veritabanı türü. MongoDB belge tabanlı bir <span class="hl">NoSQL</span> <span class="pronounce">(No-es-ku-el)</span> veritabanıdır; MySQL ise tablolu, ilişkisel bir veritabanıdır. Neden iki farklı veritabanı kullandığımızı ileride açıklayacağım.</p>
 
-    <p><span class="hl">Adım 1: Namespace</span> <br>
-    İlk olarak Kubernetes içinde kendimize özel bir Namespace <span class="pronounce">(Neym-is-peys)</span> yaratıyoruz. Bunu, devasa bir arsadaki kendimize ait etrafı çevrili bir bahçe gibi düşünün. Projemizin dosyaları bu yalıtılmış bahçenin içinde çalışacak ve hiçbir şey karmaşaya dönüşmeyecek.</p>
+  <p>Ve son olarak: <span class="hl">Kubernetes</span>, <span class="hl">Helm</span> <span class="pronounce">(Helm)</span>, <span class="hl">Istio</span> <span class="pronounce">(İs-ti-yo)</span>. Bunlar projeyi bulut ortamında profesyonelce çalıştırmak ve yönetmek için kullandığımız araçlar. Merak etmeyin, hepsini sırasıyla ve basitçe anlatacağım.</p>
+</div>
 
-    <p><span class="hl">Adım 2: Helm Klasörü</span> <br>
-    Burada helm <span class="pronounce">(Helm)</span> adında bir klasör görüyorsunuz. Helm, Kubernetes'in paket yöneticisidir. Eğer Helm kullanmasaydık, binlerce satırlık karmaşık YAML <span class="pronounce">(Yamıl)</span> dosyaları yazardık. Helm sayesinde veritabanlarımızı ve servislerimizi bir şablon gibi yönetip saniyeler içinde devasa kümeleri ayağa kaldırabiliyoruz.</p>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 3 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 3 — Parent POM ve Multi-Module Yapısı (10:00 – 16:00)</h2>
 
-    <p><span class="hl">Adım 3: Istio ve Service Mesh</span> <br>
-    Klasörde istio-telemetry dosyaları var. Istio <span class="pronounce">(İs-ti-yo)</span>, mimarimizin kalbine yerleşen bir Service Mesh <span class="pronounce">(Sör-vis Meş)</span> yani Hizmet ağıdır. Normalde Java kodlarının içine 'Bir hata olursa 3 kere tekrar dene!' gibi kodlar yazmamız gerekir. Fakat Istio sayesinde Java kodumuzu hiç kirletmiyoruz! Istio akıllı bir ağ katmanı oluşturuyor ve trafiği bizim yerimize yönetiyor.</p>
+<div class="scene">
+  🎬 VS Code veya IntelliJ açılıyor. Boş klasöre sağ tıklanıp yeni bir 'pom.xml' dosyası oluşturuluyor. Kod satır satır yazılıyor.
+</div>
 
-    <p><span class="hl">Adım 4: Gözlemlenebilirlik (Grafana ve EFK Stack)</span> <br>
-    Devasa bir sistemimiz var ama arka planda ne oluyor? Bir hata çıkarsa 10 tane farklı makineye bağlanıp log mu okuyacağız? Hayır! Buradaki EFK klasörü yani Elasticsearch, Fluentd, Kibana; tüm servislerin loglarını tek bir merkezi ekranda toplar. <br>
-    Ayrıca grafana klasörü sayesinde sistemin RAM tüketimini, yanıt sürelerini tıpkı bir uzay üssü gibi anlık olarak eşzamanlı pasta grafiklerinden izleyebiliriz.</p>
-  </div>
+<div class="speech">
+  <p>Tamam, şimdi gerçekten kodlamaya başlıyoruz. Ekranda gördüğünüz gibi 'base_project_1' adındaki klasörümüz tamamen boş. İlk iş olarak burada bir <span class="hl">pom.xml</span> <span class="pronounce">(pom-nokta-ek-se-mel)</span> dosyası yaratıyoruz.</p>
 
-  <!-- BÖLÜM 6 -->
-  <h2>📌 6: Bütün Sistemi Otomatik Test Etmek (Tahmini: 1 Dakika)</h2>
-  
-  <div class="scene">
-    🎬 Görüntü: Terminali açıyorsun. Kubernetes podları arka planda çalışırken test-em-all.ps1 dosyasını çalıştırıp akan yeşil "Test OK" yazılarını izliyorsunuz.
-  </div>
-  
-  <div class="speech">
-    <p>Bu kadar parçayı birleştirdik. Sistemin doğru çalıştığını nasıl kanıtlayacağız? İşte projemizin final dokunuşu: <span class="hl">test-em-all.ps1</span> <span class="pronounce">(test em ol pi-es-van)</span>.</p>
+  <p>Pom.xml nedir? Maven'e "Bu projem nedir, hangi kütüphaneleri kullanıyor, hangi Java versiyonuyla derlenmeli" gibi bilgileri söylediğimiz ana dosyadır. Bir projenin kimlik kartı gibi düşünebilirsiniz.</p>
 
-    <p>Bu PowerShell betiği bizim yerimize gece gündüz çalışan bir test uzmanı gibidir. Çalıştırdığımızda ilk iş olarak gider ve OAuth2 sunucusundan bir Token alır. Sonra durmaksızın Gateway üzerinden ürünlerimizi sorgular, silmeye çalışır.</p>
+  <p>Biz burada özel bir şey yapıyoruz: <span class="hl">Multi-Module Maven</span> <span class="pronounce">(Mal-ti Mo-dül Mey-vın)</span> yapısı kuruyoruz. Bu ne demek? Normalde her proje ayrı bir pom.xml dosyasına sahiptir. Ama biz bir tane ana, yani <span class="hl">Parent POM</span> <span class="pronounce">(Pe-rınt Pom)</span> dosyası yazıyoruz ve diğer tüm alt projeleri bu ana dosyanın çatısı altına topluyoruz.</p>
 
-    <p>En sevdiğim kısmı ise Devre Kesici yani <span class="hl">Circuit Breaker</span> testi yaptığı andır. Sistem bilerek yavaşlatılır. Eğer Istio ve Java devre kesicilerimiz doğru çalışıyorsa şalterler anında atar, sistem 'Fallback' <span class="pronounce">(Fol-bek)</span> dediğimiz varsayılan güvenli koruma yanıtını döndürür. Eğer terminalinizde benimki gibi tüm satırlar yeşil renkte 'Test OK' diyorsa, saniyede binlerce isteği kaldıracak o dev mimari kusursuz çalışıyor demektir!</p>
-  </div>
+  <p>Dosyamıza bakalım. En üstte groupId olarak <span class="hl">se.magnus.microservices</span> yazdık. Bu, paketimizin benzersiz kimliğidir. artifactId olarak <span class="hl">chapter20</span> yazdık. Bu da projenin adıdır. Packaging kısmına <span class="hl">pom</span> yazdık. Bu çok önemli! Packaging pom demek, "Bu projenin kendisi çalıştırılabilir bir uygulama değil, diğer projeleri yöneten bir şemsiyedir" anlamına gelir.</p>
 
-  <!-- BÖLÜM 7 -->
-  <h2>📌 7: Kapanış ve Teşekkür (Tahmini: 0.5 Dakika)</h2>
-  
-  <div class="scene">
-    🎬 Görüntü: Tam ekranda yeniden sen varsın, samimi ve motive edici bir şekilde el hareketleriyle kapatıyorsun.
-  </div>
-  
-  <div class="speech">
-    <p>Evet arkadaşlar, 10 dakika gibi kısa bir sürede eski yapılardan kurtulup; Kafka ile mesajlaşan, Istio ile korunan, Helm ve Kubernetes üzerinde orkestra gibi çalışan, Grafana üzerinde izlenen destansı bir mikroservis yapısını birlikte inşa ettik.</p>
+  <p>Hemen altında parent etiketini görüyorsunuz. Burada <span class="hl">spring-boot-starter-parent</span> <span class="pronounce">(sipring but startır perent)</span> version 3.5.0 yazdık. Bu sayede Spring Boot'un tüm varsayılan ayarları otomatik olarak projemize uygulanıyor.</p>
 
-    <p>Burada anlattığım teknolojiler, bugün dev teknoloji şirketlerinin iş görüşmelerinde sizden duymak istedikleri gerçek dünyadaki çözümleridir.</p>
+  <p>Properties bölümüne bakalım: <span class="hl">java.version</span> 21 yazdık — tüm alt projelerde Java 21 derleyicisi kullanılacak. <span class="hl">spring-cloud.version</span> 2025.0.0 yazdık — Spring Cloud <span class="pronounce">(Sipring Klaud)</span> kütüphaneleri bu sürümden gelecek. <span class="hl">mapstruct.version</span> 1.6.3 yazdık — MapStruct <span class="pronounce">(Mep-strakt)</span> adındaki bir dönüştürücü kütüphanenin versiyonunu belirliyoruz. <span class="hl">resilience4j.version</span> 2.3.0 yazdık — hata yönetimi kütüphanemiz.</p>
 
-    <p>Hazırladığım bu içeriklerin devamının gelmesini istiyorsanız videoyu beğenmeyi, projeyi kurarken aldığınız hataları yorumlarda sormayı ve kanala abone olmayı lütfen unutmayın! Projenin tüm kodlarına açıklamadaki GitHub <span class="pronounce">(Git-hab)</span> linkinden ulaşabilirsiniz. Bir sonraki bölümde görüşmek üzere, kodla kalın, hoşçakalın!</p>
-  </div>
+  <p>Ve en kritik kısım: modules etiketi. Buraya alt projelerin yollarını tek tek ekliyoruz: api, util, microservices/product-service, microservices/review-service, microservices/recommendation-service, microservices/product-composite-service, spring-cloud/gateway, spring-cloud/authorization-server. Toplam 8 modül! Maven, build aldığımızda hepsini sırayla derleyecek. Bir kütüphane versiyonunu değiştirmek istediğimizde sadece bu tek dosyayı düzenleyeceğiz.</p>
+</div>
 
-  <div class="bottom-padding"></div> <!-- Prompter bitince yazi asagida kalmasin diye ekstra bosluk -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 4 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 4 — API Modülü: Ortak Sözleşmeleri Yazmak (16:00 – 24:00)</h2>
 
+<div class="scene">
+  🎬 'api' klasörü oluşturuluyor. İçine src/main/java/se/magnus/api paket yapısı açılıyor. Product.java, ProductService.java ve Event.java dosyaları ekrana geliyor.
+</div>
+
+<div class="speech">
+  <p>İlk modülümüzü yaratıyoruz: <span class="hl">api</span>. Bu klasör çalıştırılabilir bir uygulama değil. Bunu bir sözleşme dosyası gibi düşünün. İçinde "Bir ürün nedir? Hangi bilgileri taşır? Bir yorum neye benzer?" gibi tanımlar yer alacak. Tüm servisler bu sözleşmeye bakarak birbirleriyle anlaşacaklar.</p>
+
+  <p>api klasörüne gidip kendi pom.xml dosyasını oluşturuyoruz. Bu dosyada parent olarak biraz önce yazdığımız ana pom.xml'i gösteriyoruz — yani 'chapter20' projesini. İçine iki tane Dependency <span class="pronounce">(Di-pen-dın-si)</span> yani bağımlılık ekliyoruz: <span class="hl">spring-boot-starter-webflux</span> <span class="pronounce">(sipring-but-startır-veb-flaks)</span> çünkü Interface <span class="pronounce">(İn-tır-feys)</span> tanımlarında Mono ve Flux veri tipleri kullanacağız. İkincisi ise <span class="hl">springdoc-openapi-starter-common</span> <span class="pronounce">(sipring-dok-o-pın-ey-pi-ay)</span> — bu API'mızın otomatik dökümantasyonunu yapan Swagger <span class="pronounce">(Sveg-ır)</span> kütüphanesidir.</p>
+
+  <p>Şimdi paket yapısını oluşturuyoruz. Java'da paket yapısı çok önemlidir. Paketimiz <span class="hl">se.magnus.api</span> olacak. Bunun altında dört tane alt paket açıyoruz:</p>
+
+  <p>Birincisi: <span class="hl">core/product</span> paketi. Burada iki dosya var. İlki <span class="hl">Product.java</span> — bu bizim DTO <span class="pronounce">(Di-ti-o)</span>, yani Data Transfer Object <span class="pronounce">(Dey-ta Trans-fır Ob-cekt)</span> dosyamız. İçinde productId, name, weight ve serviceAddress alanları var. Dikkat edin: Bu sınıf veritabanı tablosu değil. Bu sadece servisler arasında taşınan veri paketidir. İkinci dosya <span class="hl">ProductService.java</span> — bu bir Java Interface. İçine üç metod tanımlıyoruz: createProduct, getProduct ve deleteProduct. Dikkat edin, metodların geri dönüş tipi String veya int değil, <span class="hl">Mono&lt;Product&gt;</span> <span class="pronounce">(Mo-no)</span>. Mono, Reactive Programming'in temel taşıdır. "Belki şimdi değil ama gelecekte bir tane veri gelecek" demektir. Bu sayede Thread <span class="pronounce">(Tıred)</span> yani iş parçacığı asla bloklanmaz.</p>
+
+  <p>Aynı yapıyı <span class="hl">core/review</span> ve <span class="hl">core/recommendation</span> paketleri için de tekrarlıyoruz. Her biri kendi DTO'suna ve kendi Service Interface'ine sahip.</p>
+
+  <p>İkinci alt paketimiz: <span class="hl">composite/product</span>. Burada ön yüze döneceğimiz birleşik veri modeline ait sınıflar var. <span class="hl">ProductAggregate.java</span> dosyasında productId, name ve weight gibi ürün bilgileri var. Ama ek olarak <span class="hl">List&lt;RecommendationSummary&gt;</span> ve <span class="hl">List&lt;ReviewSummary&gt;</span> listeleri de var! Yani bu sınıf, üç servisin verisini tek bir pakette topluyor. <span class="hl">ServiceAddresses</span> adlı bir veri de var — bu teknik bilgidir, her parçayı hangi sunucunun ürettiğini gösterir.</p>
+
+  <p>Ve burada çok önemli bir dosya daha var: <span class="hl">ProductCompositeService.java</span> Interface. Bu Interface'in tepesine Swagger anotasyonları ekledik: <span class="hl">@SecurityRequirement</span> <span class="pronounce">(Si-kyu-ri-ti Ri-kvayr-mınt)</span> ile bu API'nın güvenlik gerektirdiğini belirtiyoruz. <span class="hl">@Tag</span> ile Swagger arayüzünde görünen ismi veriyoruz. Üç metod tanımlıyoruz: createProduct POST metodu ile, getProduct GET metodu ile ve deleteProduct DELETE metodu ile çalışacak. Her birinin döndürdüğü tip <span class="hl">Mono&lt;ProductAggregate&gt;</span> — yani hepsi Reactive.</p>
+
+  <p>Üçüncü alt paket: <span class="hl">event</span>. Burada <span class="hl">Event.java</span> sınıfı var ve bu çok kritik bir sınıf. İki tane generic <span class="pronounce">(Ce-ne-rik)</span> parametre alıyor: K ve T. K anahtardır (mesela productId), T ise veri sınıfıdır (mesela Product nesnesi). İçinde bir <span class="hl">Type</span> enum'u var: CREATE ve DELETE. Bir de <span class="hl">eventCreatedAt</span> alanı var — olayın tam tarih ve saatini tutar. Birazdan servisler birbirine mesaj yollarken bu Event sınıfını kullanacaklar.</p>
+
+  <p>Dördüncü alt paket: <span class="hl">exceptions</span>. Burada dört tane özel Exception <span class="pronounce">(Ek-sep-şın)</span> sınıfı var: <span class="hl">NotFoundException</span> <span class="pronounce">(Not-faund)</span> — aranılan şey bulunamadığında fırlatılır. <span class="hl">InvalidInputException</span> <span class="pronounce">(İn-ve-lid İn-put)</span> — geçersiz veri girişinde fırlatılır. <span class="hl">BadRequestException</span> <span class="pronounce">(Bed Ri-kvest)</span> — hatalı istekte fırlatılır. <span class="hl">EventProcessingException</span> <span class="pronounce">(İ-vent Pro-se-sing)</span> — mesajlar işlenirken hata olursa fırlatılır. Hep aynı dili konuşarak standart bir hata yönetimi sağlıyoruz.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 5 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 5 — Util Modülü: Ortak Yardımcı Araçlar (24:00 – 28:00)</h2>
+
+<div class="scene">
+  🎬 'util' klasörü oluşturuluyor. İçindeki GlobalControllerExceptionHandler ve ServiceUtil sınıfları gösteriliyor.
+</div>
+
+<div class="speech">
+  <p>İkinci modülümüzü yaratıyoruz: <span class="hl">util</span>. Bu modül de çalıştırılabilir bir uygulama değil. Bu, tüm servislerimizin paylaşacağı yardımcı araçlar kutusudur.</p>
+
+  <p>util modülünün pom.xml'ine bakarsanız, bir önceki api modülünü dependency olarak eklediğimizi göreceksiniz. Yani util, api'yi tanır ve ondaki Exception sınıflarını kullanabilir. Bu bir Dependency zinciridir: api modülü en altta, util onun üstünde, ve ileride yazacağımız servisler en üstte olacak.</p>
+
+  <p>util modülünün içine paketimizi oluşturuyoruz: <span class="hl">se.magnus.util.http</span>. Buranın yıldızı <span class="hl">GlobalControllerExceptionHandler</span> <span class="pronounce">(Glo-bıl Kont-ro-lır Ek-sep-şın Hend-lır)</span> sınıfıdır. Bu sınıfın tepesine iki tane özel anotasyon koyuyoruz: <span class="hl">@RestControllerAdvice</span> <span class="pronounce">(Rest Kont-ro-lır Ed-vays)</span>. Bu Spring'e der ki "Eğer herhangi bir Controller'da bir Exception fırlatılırsa, onu yakalamak için buraya gel." İçinde mesela <span class="hl">@ExceptionHandler(NotFoundException.class)</span> gibi metodlar tanımlıyoruz. Bu metod şunu yapar: API kullanıcısı olmayan bir ürünü aramaya kalkarsa, düzgün bir JSON yanıtı döner. İçinde <span class="hl">HttpErrorInfo</span> <span class="pronounce">(Http Er-ır İn-fo)</span> nesnesi oluşturulur; timestamp, path/url ve error message bilgilerini içerir. Böylece kullanıcıya Java stack trace gibi korkunç bir hata kodu yerine anlaşılır bir mesaj gösterilir.</p>
+
+  <p>İkinci yardımcı sınıfımız <span class="hl">ServiceUtil</span> <span class="pronounce">(Sör-vis Yu-til)</span>. Bu sınıf çalıştığı sunucunun IP adresini ve portunu otomatik tespit eder. Neden ihtiyacımız var? Çünkü ProductAggregate'deki serviceAddress alanını doldurmak için. Hangi isteğe hangi sunucunun cevap verdiğini izleme (<span class="hl">Tracing</span> <span class="pronounce">(Trey-sing)</span>) amaçlı kullanırız.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 6 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 6 — Product Service: İlk Microservice'imiz ve MongoDB (28:00 – 38:00)</h2>
+
+<div class="scene">
+  🎬 'microservices/product-service' klasörü oluşturuluyor. ProductEntity.java, ProductRepository.java, ProductMapper.java ve ProductServiceImpl.java dosyaları sırasıyla açılıp kodları gösteriliyor.
+</div>
+
+<div class="speech">
+  <p>İşte şimdi gerçek bir Microservice yazıyoruz! 'microservices' klasörü altına 'product-service' adında ilk servisimizi oluşturuyoruz. Önce bu servisin pom.xml dosyasına bakalım — içinde çok önemli bağımlılıklar var:</p>
+
+  <p><span class="hl">spring-boot-starter-webflux</span> — Reactive web sunucusu için. <span class="hl">spring-boot-starter-data-mongodb-reactive</span> <span class="pronounce">(sipring-but-startır-dey-ta-mongo-di-bi-riyektiv)</span> — MongoDB veritabanıyla Reactive biçimde konuşmak için. <span class="hl">spring-cloud-starter-stream-rabbit</span> — RabbitMQ ile mesaj alışverişi için. <span class="hl">spring-cloud-starter-stream-kafka</span> — Kafka ile de mesaj alışverişi yapabilmek için. <span class="hl">mapstruct</span> — obje dönüşümü için. <span class="hl">micrometer-tracing-bridge-brave</span> <span class="pronounce">(mayk-ro-mi-tır trey-sing bric breyv)</span> ve <span class="hl">zipkin-reporter-brave</span> — Distributed Tracing <span class="pronounce">(Dist-ri-byu-tid Trey-sing)</span> yani dağıtık izleme için. <span class="hl">spring-boot-starter-actuator</span> <span class="pronounce">(ek-çu-ey-tır)</span> — servisin sağlık durumunu izlemek için. <span class="hl">micrometer-registry-prometheus</span> <span class="pronounce">(pro-mi-ti-us)</span> — metrikleri toplamak için.</p>
+
+  <p>Ayrıca build bölümünde <span class="hl">maven-compiler-plugin</span> içine <span class="hl">mapstruct-processor</span> ekledik. MapStruct bir <span class="hl">Annotation Processor</span> <span class="pronounce">(Eno-tey-şın Pro-se-sır)</span> olduğu için, derleme sırasında otomatik kod üretir. Bu ayarı yapmadan MapStruct çalışmaz.</p>
+
+  <p>Şimdi katman katman kodumuzu yazalım. İlk katman: <span class="hl">Persistence Layer</span> <span class="pronounce">(Pır-sis-tıns Ley-ır)</span>. Yani verinin kaydedildiği katman. Burada iki dosya var:</p>
+
+  <p><span class="hl">ProductEntity.java</span> — Bu veritabanındaki asıl veri modelidir. Tepesinde <span class="hl">@Document(collection = "products")</span> <span class="pronounce">(Do-kyu-mınt)</span> anotasyonu var. Bu MongoDB'ye "Bu veriyi 'products' adlı koleksiyona kaydet" demektir. İçinde <span class="hl">@Id</span> olarak işaretlenmiş bir String id alanı var — MongoDB'nin kendi ürettiği benzersiz kimlik. <span class="hl">@Version</span> ile versiyon numarası var — bir kayıt aynı anda iki kişi tarafından değiştirilmeye çalışılırsa Optimistic Locking <span class="pronounce">(Op-ti-mis-tik Lo-king)</span> devreye girer ve çakışmayı engeller. <span class="hl">@Indexed(unique = true)</span> ile productId alanını benzersiz index olarak işaretledik — aynı productId'den iki tane olamaz.</p>
+
+  <p><span class="hl">ProductRepository.java</span> — Bu bir Interface ve <span class="hl">ReactiveMongoRepository</span> <span class="pronounce">(Ri-yek-tiv Mon-go Ri-po-zi-to-ri)</span>'yi extend ediyor. Tek bir metod yazıyoruz: <span class="hl">Mono&lt;ProductEntity&gt; findByProductId(int productId)</span>. Spring Data bunu görecek ve otomatik olarak MongoDB sorgusunu bizim yerimize üretecek. Hiç sorgu yazmanıza gerek yok!</p>
+
+  <p>İkinci katman: <span class="hl">Mapper</span>. <span class="hl">ProductMapper.java</span> bir MapStruct Interface'idir. İçinde iki metod tanımlıyoruz: <span class="hl">entityToApi</span> — veritabanındaki ProductEntity'yi API'nın Product DTO'suna çevirir. <span class="hl">apiToEntity</span> — gelen Product DTO'sunu veritabanı Entity'sine çevirir. Tepesindeki <span class="hl">@Mapper(componentModel = "spring")</span> anotasyonu sayesinde MapStruct derleme anında otomatik bir implementasyon sınıfı üretir. Biz bu satırları elle yazmak zorunda kalmıyoruz!</p>
+
+  <p>Üçüncü katman: <span class="hl">Service Implementation</span>. <span class="hl">ProductServiceImpl.java</span> sınıfı, API modülündeki ProductService Interface'ini implement eder. <span class="hl">@RestController</span> anotasyonu ile Spring'e "Bu bir web endpoint'idir" diyoruz. createProduct metodu içinde mapper.apiToEntity çağrılıyor, veri Entity'ye çevriliyor, sonra repository.save ile MongoDB'ye kaydediliyor. Geri dönüş tipi Mono — non-blocking. Eğer zaten var olan bir productId ile kayıt yapılmaya çalışılırsa, <span class="hl">DuplicateKeyException</span> <span class="pronounce">(Dyup-li-kit Ki Ek-sep-şın)</span> yakalanır ve InvalidInputException'a çevrilir.</p>
+
+  <p>getProduct metodunda çok ilginç bir özellik var: <span class="hl">delay</span> ve <span class="hl">faultPercent</span> parametreleri. Bunlar test amaçlıdır! delay parametresi ile servisi bilerek yavaşlatabiliriz. faultPercent ile belirli bir yüzdeyle rastgele hata fırlatabiliriz. Bu mekanizmalar sayesinde ileride Circuit Breaker testlerimizi yapacağız.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 7 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 7 — Review ve Recommendation Servisleri ve Polyglot Persistence (38:00 – 44:00)</h2>
+
+<div class="scene">
+  🎬 review-service ve recommendation-service klasörleri oluşturuluyor. review-service'in MySQL JPA anotasyonları gösteriliyor.
+</div>
+
+<div class="speech">
+  <p>Product service'in kalıbını kullanarak iki servis daha oluşturuyoruz: <span class="hl">review-service</span> <span class="pronounce">(ri-vyu sör-vis)</span> ve <span class="hl">recommendation-service</span> <span class="pronounce">(re-ko-men-dey-şın sör-vis)</span>.</p>
+
+  <p>Recommendation service, yapı olarak Product service'e çok benzer. O da MongoDB kullanıyor, O da Reactive. Ama Review service çok farklı! Burada Microservices'in en önemli prensiplerinden birini uyguluyoruz: <span class="hl">Polyglot Persistence</span> <span class="pronounce">(Po-lig-lot Pır-sis-tıns)</span>. Bu ne demek? "Her servise en uygun veritabanını kullan" demek.</p>
+
+  <p>Product ve Recommendation verileri esnek, şekli değişebilir belgelerdir. MongoDB bu tür verilerle çok iyi çalışır. Ama Review yani kullanıcı yorumları farklıdır. Bir yorumun mutlaka bir ürüne ait olması gerekir. Tablolar arası katı ilişkiler söz konusudur. Bu yüzden Review service'e <span class="hl">MySQL</span> bağlıyoruz.</p>
+
+  <p>Review service'in Entity sınıfında <span class="hl">@Entity</span> ve <span class="hl">@Table(name = "reviews")</span> anotasyonları var — bunlar JPA <span class="pronounce">(Cey-pi-ey)</span> yani Java Persistence API <span class="pronounce">(Pır-sis-tıns Ey-pi-ay)</span> anotasyonlarıdır. MongoDB'deki @Document yerine @Entity kullanıyoruz. configuration dosyasında <span class="hl">spring.jpa.hibernate.ddl-auto: update</span> diyoruz — bu Hibernate'e <span class="pronounce">(Hay-bır-neyt)</span> "Uygulama başladığında tablo yoksa yarat, varsa güncelle" komutunu verir.</p>
+
+  <p>En kritik kural: <span class="hl">Her servisin kendi izole veritabanı olmalıdır!</span> Product service asla Review service'in MySQL veritabanına doğrudan erişemez. Servisler arası veri alışverişi sadece API veya mesajlaşma üzerinden yapılır. Bu kuralı ihlal ederseniz mimariniz çöker.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 8 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 8 — Event-Driven Architecture ve Message Broker (44:00 – 52:00)</h2>
+
+<div class="scene">
+  🎬 MessageProcessorConfig.java dosyası ekranda yakınlaştırılarak gösteriliyor. Event sınıfı ve Spring Cloud Stream binding ayarları inceleniyor.
+</div>
+
+<div class="speech">
+  <p>Servislerimiz hazır, ama şu an birbirleriyle konuşamıyorlar. Diyelim ki kullanıcı yeni bir ürün oluşturmak istedi. Composite service, Product service'e doğrudan HTTP isteği atmalı mı? Eğer Product service meşgulse, Composite service bekleyecek. Binlerce kullanıcı beklerse, sistem çöker. Bu yüzden <span class="hl">Event-Driven Architecture</span> <span class="pronounce">(İ-vent Dri-vın Ar-ki-tek-çır)</span> kullanıyoruz.</p>
+
+  <p>Prensip çok basit: Composite service, ürünü doğrudan kaydetmez. Bunun yerine "Yeni bir ürün yaratılmalı" diyen bir mesajı bir kuyruğa bırakır. Product service bu kuyruğu dinler ve müsait olduğunda mesajı alıp ürünü kaydeder. Tıpkı bir postaneye mektup bırakmak gibi. Alıcı evde olmasa bile mektup kaybolmaz.</p>
+
+  <p>Bu kuyruk sistemine <span class="hl">Message Broker</span> denir. Biz projemizde iki farklı Message Broker destekliyoruz: <span class="hl">RabbitMQ</span> ve <span class="hl">Apache Kafka</span> <span class="pronounce">(A-pa-çi Kaf-ka)</span>. Varsayılan olarak RabbitMQ kullanıyoruz ama config dosyasından <span class="hl">kafka</span> profile'ını aktif ederek Kafka'ya geçebiliriz.</p>
+
+  <p>Şimdi Product service içindeki <span class="hl">MessageProcessorConfig.java</span> <span class="pronounce">(Me-sıc Pro-se-sır Kon-fig)</span> dosyasına bakalım. Burada <span class="hl">Spring Cloud Stream</span> <span class="pronounce">(Sipring Klaud Strim)</span> kütüphanesini kullanıyoruz. Bu kütüphane nedir? Mesaj kuyruklarıyla konuşmak için RabbitMQ'ya veya Kafka'ya özel kod yazmak yerine, ortak bir ara yüz üzerinden çalışmamızı sağlar. Böylece yarın RabbitMQ'dan Kafka'ya geçmek istediğimizde, Java kodumuzda hiçbir şeyi değiştirmeyiz; sadece konfigürasyonu değiştiririz!</p>
+
+  <p>Koda bakalım: <span class="hl">@Bean</span> anotasyonuyla bir <span class="hl">Consumer&lt;Event&lt;Integer, Product&gt;&gt;</span> <span class="pronounce">(Kon-syu-mır)</span> tanımlıyoruz. Bu fonksiyon kuyruğa düşen her mesajı otomatik olarak alır. İçinde bir switch-case var: Eğer event tipi <span class="hl">CREATE</span> ise productService.createProduct çağrılır ve ürün MongoDB'ye kaydedilir. Eğer event tipi <span class="hl">DELETE</span> ise productService.deleteProduct çağrılır ve ürün silinir. Başka bir tip gelirse <span class="hl">EventProcessingException</span> fırlatılır.</p>
+
+  <p>config-repo klasöründeki product.yml içinde binding ayarları var: <span class="hl">messageProcessor-in-0</span> adıyla bir input binding tanımlanmış. Destination olarak <span class="hl">products</span> yazılmış — yani "products" adlı kuyruğu dinle. Group olarak <span class="hl">productsGroup</span> yazılmış — bu sayede aynı servisten birden çok instance <span class="pronounce">(İns-tıns)</span> çalışsa bile aynı mesaj yalnızca bir instance'a iletilir.</p>
+
+  <p>Hata tolerans ayarları da var: <span class="hl">maxAttempts: 3</span> — bir mesaj işlenirken hata olursa 3 kez tekrar dene. <span class="hl">backOffInitialInterval: 500</span> — ilk denemede 500 milisaniye bekle. <span class="hl">backOffMultiplier: 2.0</span> — her denemede bekleme süresini ikiyle çarp. Ve eğer 3 deneme de başarısız olursa? <span class="hl">autoBindDlq: true</span> ayarı ile mesaj <span class="hl">Dead Letter Queue</span> <span class="pronounce">(Ded Le-tır Kyu)</span> adlı özel bir kuyruğa yönlendirilir. Böylece hiçbir mesaj kaybolmaz, hatalı mesajları sonra inceleyebiliriz.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 9 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 9 — Composite Service: Orkestra Şefi ve Resilience4j (52:00 – 62:00)</h2>
+
+<div class="scene">
+  🎬 product-composite-service klasörü açılıyor. SecurityConfig.java ve ResilienceConfig.java kodları inceleniyor. product-composite.yml dosyasındaki Circuit Breaker ayarları yakından gösteriliyor.
+</div>
+
+<div class="speech">
+  <p>Şimdi mimarimizin beyni olan dördüncü servisimizi yazıyoruz: <span class="hl">product-composite-service</span>. Buna <span class="hl">Orchestrator Service</span> <span class="pronounce">(Or-kes-trey-tır Sör-vis)</span> diyoruz. Bu servisin tek görevi: dış dünyadan gelen tek bir isteği alıp, arka plandaki üç servisten veriyi toplayıp, birleştirip geri döndürmek.</p>
+
+  <p>Kullanıcı telefondan "123 numaralı ürünü göster" dediğinde, Composite service arka planda eş zamanlı olarak üç servise istek atar: Product service'ten ürün bilgisini, Review service'ten yorumları, Recommendation service'ten önerileri alır. Hepsini birleştirerek bir <span class="hl">ProductAggregate</span> nesnesi oluşturur ve döndürür.</p>
+
+  <p>Bu serviste çok önemli ayar dosyaları var. <span class="hl">SecurityConfig.java</span> dosyasına bakalım. Tepesinde <span class="hl">@EnableWebFluxSecurity</span> <span class="pronounce">(İ-ney-bıl Veb-flaks Si-kyu-ri-ti)</span> anotasyonu var. İçinde kurallar tanımlıyoruz: GET isteği atan kullanıcının <span class="hl">SCOPE_product:read</span> yetkisine sahip olması gerekiyor. POST ve DELETE istekleri için <span class="hl">SCOPE_product:write</span> yetkisi gerekiyor. <span class="hl">/openapi/**</span> ve <span class="hl">/actuator/**</span> yollarına herkes yetkisiz erişebilir. Bu <span class="hl">Scope</span> <span class="pronounce">(Skop)</span> bilgisini OAuth2 Token'ı içinden okuyoruz. Yani giriş yapan her kullanıcı, Authorization Server'dan aldığı Token'ın içinde taşıdığı yetkiler neyse, sadece o işlemleri yapabilir.</p>
+
+  <p>Şimdi asıl can simidimize gelelim: <span class="hl">Resilience4j</span> <span class="pronounce">(Ri-zil-yıns For-cey)</span>. Bu kütüphane sistemimizi hataya dayanıklı yapar. config-repo/product-composite.yml dosyasındaki ayarları inceleyalim:</p>
+
+  <p><span class="hl">Circuit Breaker</span> ayarları: <span class="hl">slidingWindowType: COUNT_BASED</span> — son N isteğe bakarak karar verir. <span class="hl">slidingWindowSize: 5</span> — son 5 isteği izler. <span class="hl">failureRateThreshold: 50</span> — eğer bu 5 isteğin %50'si yani en az 3 tanesi başarısızsa, devre açılır (şalter düşer). <span class="hl">waitDurationInOpenState: 10000</span> — şalter düştükten sonra 10 saniye boyunca hiç istek göndermez. <span class="hl">permittedNumberOfCallsInHalfOpenState: 3</span> — 10 saniye sonra yarı açık duruma geçer ve deneme amaçlı 3 istek gönderir, eğer bunlar başarılıysa devre tamamen kapanır.</p>
+
+  <p><span class="hl">TimeLimiter</span> <span class="pronounce">(Taym Li-mi-tır)</span> ayarı: <span class="hl">timeoutDuration: 2s</span> — eğer product service 2 saniye içinde cevap vermezse istek iptal edilir.</p>
+
+  <p><span class="hl">Retry</span> <span class="pronounce">(Ri-tray)</span> ayarı: <span class="hl">maxAttempts: 3</span> — başarısız istekleri 3 kez tekrar dener. <span class="hl">waitDuration: 1000</span> — her deneme arasında 1 saniye bekler. <span class="hl">retryExceptions</span> — sadece <span class="hl">InternalServerError</span> <span class="pronounce">(İn-tör-nıl Sör-vır Er-ır)</span> için tekrar dener.</p>
+
+  <p>Ve çok zekice bir dokunuş: <span class="hl">ignoreExceptions</span> listesinde InvalidInputException ve NotFoundException var. Yani kullanıcı olmayan bir ürünü ararsa, Circuit Breaker bunu "hata" olarak saymaz. Çünkü bu isteğin hatası değil, olmayan bir ürünü aramanın sonucudur.</p>
+
+  <p><span class="hl">ResilienceConfig.java</span> sınıfında ise bir "kapatma anahtarı" var. <span class="hl">app.resilience.enabled</span> değişkeni false yapılırsa, tüm Circuit Breaker, TimeLimiter ve Retry mekanizmaları devre dışı kalır. Bu Istio ortamında (ileride göreceğiz) çok işe yarar çünkü Istio kendi Retry ve Circuit Breaker mantığını uygular ve çakışmasın diye Java tarafındakini kapatıyoruz.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 10 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 10 — Docker ile Her Şeyi Ayağa Kaldırmak (62:00 – 70:00)</h2>
+
+<div class="scene">
+  🎬 docker-compose.yml dosyası ekranda satır satır inceleniyor. Sonra .env dosyası gösteriliyor. Terminal'de 'docker compose up' komutu çalıştırılıyor.
+</div>
+
+<div class="speech">
+  <p>Kod yazdık ama henüz çalışan bir şey yok. MongoDB'yi, MySQL'i, RabbitMQ'yu, Zipkin'i kurmamız lazım. Hepsini tek tek kurmak yerine <span class="hl">Docker Compose</span> <span class="pronounce">(Do-kır Kom-poz)</span> kullanacağız.</p>
+
+  <p>Root klasörümüzde <span class="hl">docker-compose.yml</span> dosyası yaratıyoruz. Bu dosya on tane servis tanımlar. Hepsini tek tek anlatalım:</p>
+
+  <p><span class="hl">product</span> servisi: microservices/product-service klasöründen build alır. İmaj adı <span class="hl">hands-on/product-service</span>. Memory limiti 512 MB. Environment değişkenleriyle aktif profili "docker" yapıyor ve config dosyasının yollarını gösteriyor. MongoDB kullanıcı adı ve şifresini <span class="hl">.env</span> dosyasından alıyor. volumes ile config-repo klasörünü Container içine bağlıyor. <span class="hl">depends_on</span> ile "MongoDB hazır olmadan beni başlatma" diyor ve <span class="hl">condition: service_healthy</span> ile sağlık kontrolünü bekliyor.</p>
+
+  <p><span class="hl">.env</span> dosyası nedir? Root klasörde oluşturduğumuz bu küçük dosya, şifreleri Docker Compose'a sağlar: RABBITMQ_USR, RABBITMQ_PWD, MONGODB_USR, MONGODB_PWD, MYSQL_USR, MYSQL_PWD ve GATEWAY_TLS_PWD. Bu şifreleri asla Git'e göndermeyin! .gitignore dosyanızda bu dosyayı mutlaka engellemelisiniz.</p>
+
+  <p>recommendation ve review servisleri de benzer şekilde tanımlanmış. Review'in farkı şu: MongoDB yerine <span class="hl">SPRING_DATASOURCE_USERNAME</span> ve <span class="hl">SPRING_DATASOURCE_PASSWORD</span> ile MySQL bağlantısı yapıyor.</p>
+
+  <p><span class="hl">mongodb</span> servisi: <span class="hl">mongo:8.0.5</span> imajını çekiyor. Port 27017'ye bağlıyor. <span class="hl">healthcheck</span> ile "mongosh ile ping atarak sağlıklı olduğunu kanıtla" diyor. 5 saniyede bir kontrol ediyor, 60 deneme sonra başarısızsa çökmüş kabul ediyor.</p>
+
+  <p><span class="hl">mysql</span> servisi: <span class="hl">mysql:9.2.0</span> imajını çekiyor. Port 3306'ya bağlıyor. <span class="hl">MYSQL_DATABASE: review-db</span> ile otomatik olarak 'review-db' adında bir veritabanı yaratılıyor.</p>
+
+  <p><span class="hl">rabbitmq</span> servisi: <span class="hl">rabbitmq:4.0.7-management</span> imajını kullanıyor. 'management' etiketi önemli — bu sayede tarayıcıdan 15672 portunda RabbitMQ yönetim panelini açabilirsiniz.</p>
+
+  <p>Ve çok önemli: <span class="hl">jaeger-collector.istio-system</span> servisi aslında bir <span class="hl">Zipkin</span> <span class="pronounce">(Zip-kin)</span> sunucusudur. Distributed Tracing için kullanılır. Bir istek Gateway'den girip servisler arasında seyahat ederken nerede ne kadar süre harcandığını görselleştirir. Port 9411'de çalışır.</p>
+
+  <p>Her servisin içinde bir <span class="hl">Dockerfile</span> <span class="pronounce">(Do-kır-fayl)</span> var. Bu dosya <span class="hl">Multi-Stage Build</span> <span class="pronounce">(Mal-ti Steyc Bild)</span> kullanıyor: İlk aşamada <span class="hl">eclipse-temurin:24_36-jre-noble</span> imajı üzerinde JAR dosyasını katmanlara çözüyor. İkinci aşamada sadece gerekli katmanları alıp küçük bir Container oluşturuyor. Bu sayede imaj boyutu minimum kalıyor.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 11 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 11 — Centralized Configuration: Config Repo (70:00 – 75:00)</h2>
+
+<div class="scene">
+  🎬 config-repo klasörü açılıyor. application.yml, product.yml, product-composite.yml, gateway.yml, auth-server.yml dosyaları sırasıyla gösteriliyor.
+</div>
+
+<div class="speech">
+  <p>Projemizde 6 farklı çalışan uygulama var. Her birinin veritabanı adresleri, portları ve şifreleri var. Bunları her servisin kendi içine gömmek büyük bir hatadır. Bir şifre değişirse 6 yeri güncellememiz gerekir. Bunu önlemek için <span class="hl">Centralized Configuration</span> <span class="pronounce">(Sen-trı-layzd Kon-fi-gyu-rey-şın)</span> uyguluyoruz.</p>
+
+  <p>Root klasörde <span class="hl">config-repo</span> adında bir klasör oluşturduk. İçinde 7 tane YAML dosyası var:</p>
+
+  <p><span class="hl">application.yml</span> — Tüm servisler tarafından paylaşılan ortak ayarlar. RabbitMQ host adresi, Kafka broker adresi, Actuator ayarları, Zipkin Tracing endpoint adresi, Graceful Shutdown <span class="pronounce">(Grey-sful Şat-daun)</span> ayarı. Ayrıca bu dosyada Spring Profile <span class="pronounce">(Pro-fayl)</span> sistemi kullanılıyor. <span class="hl">spring.config.activate.on-profile: docker</span> yazan blok sadece Docker ortamında aktif olur. <span class="hl">on-profile: kafka</span> sadece Kafka kullanıldığında aktif olur. <span class="hl">on-profile: prod</span> sadece üretim ortamında aktif olur ve orada management endpointleri sınırlandırılır.</p>
+
+  <p>Dikkat edin: <span class="hl">management.tracing.sampling.probability: 1.0</span> demek, gelen her isteğin %100'ü Zipkin'e raporlanır. Üretimde bu değeri 0.05 gibi düşük tutarsınız. Yoksa aşırı veri üretilir.</p>
+
+  <p><span class="hl">product.yml</span> — Product service'e özel ayarlar. MongoDB bağlantı bilgileri, Spring Cloud Stream binding tanımları, Dead Letter Queue ayarları, Streaming Partition <span class="pronounce">(Par-ti-şın)</span> ayarları.</p>
+
+  <p><span class="hl">product-composite.yml</span> — Bu en büyük config dosyamız. İçinde Swagger/OpenAPI ayarları, Spring Cloud Stream output binding'leri (products-out-0, recommendations-out-0, reviews-out-0), Resilience4j Circuit Breaker, TimeLimiter ve Retry ayarları var.</p>
+
+  <p><span class="hl">gateway.yml</span> — Gateway'in routing kuralları burada. Port 8443, TLS sertifika ayarları, ve Route tanımları: <span class="hl">/product-composite/**</span> yoluna gelen istekler product-composite servisine, <span class="hl">/oauth2/**</span> yoluna gelen istekler auth-server'a yönlendirilir.</p>
+
+  <p><span class="hl">auth-server.yml</span> — Authorization Server'ın portu ve profil ayarları.</p>
+
+  <p>Docker Compose her Container'ı başlatırken <span class="hl">SPRING_CONFIG_LOCATION</span> environment değişkeniyle bu dosyaların yolunu söylüyor. Böylece config-repo klasöründe yapılan her değişiklik, servisleri yeniden başlattığınızda anında aktif oluyor.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 12 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 12 — API Gateway ve OAuth2 Authorization Server (75:00 – 83:00)</h2>
+
+<div class="scene">
+  🎬 spring-cloud klasörü açılıyor. gateway ve authorization-server alt klasörleri gösteriliyor. Gateway routing kuralları ve SecurityConfig detaylıca inceleniyor.
+</div>
+
+<div class="speech">
+  <p>Tüm servislerimiz çalışıyor ama internet dünyasına açık portlar güvenlik açığıdır. Kullanıcılar doğrudan Product service'in portuna erişmemeli. İşte <span class="hl">API Gateway</span> tam burada devreye giriyor.</p>
+
+  <p>spring-cloud klasörü altına <span class="hl">gateway</span> projesi oluşturuyoruz. Bu proje <span class="hl">Spring Cloud Gateway</span> <span class="pronounce">(Sipring Klaud Geyt-vey)</span> kütüphanesini kullanıyor. Gateway, dış ağla iç ağ arasındaki tek kapıdır. Tüm Microservice'lerimizin portlarını kapatıyoruz, sadece Gateway'in 8443 portu internete açık.</p>
+
+  <p>gateway.yml dosyasındaki Route <span class="pronounce">(Rut)</span> tanımlarına bakalım: <span class="hl">id: product-composite</span> diyen Route, <span class="hl">Path=/product-composite/**</span> kalıbıyla eşleşen tüm istekleri http://product-composite adresine yönlendirir. Buradaki 'product-composite' bir DNS ismidir; Docker ağı içinde Container adıyla çözümlenir.</p>
+
+  <p>OAuth2 yolları da tanımlı: /oauth2/**, /login/**, /error/** — hepsi Authorization Server'a yönlendirilir. Ve tek bir satırla <span class="hl">spring.security.oauth2.resourceserver.jwt.issuer-uri</span> ayarını yapıyoruz. Bu, Gateway'e "Token'ı doğrulamak için hangi sunucuya git" diye söyler.</p>
+
+  <p>TLS ayarlarına bakalım: <span class="hl">spring.ssl.bundle.jks.gateway</span> bloğunda bir <span class="hl">PKCS12</span> <span class="pronounce">(Pi-key-si-on-iki)</span> formatında keystore dosyası tanımlı: <span class="hl">classpath:keystore/edge.p12</span>. Bu dosya Self-Signed Certificate <span class="pronounce">(Self-saynd Sır-ti-fi-kit)</span> içerir. Üretim ortamında gerçek bir SSL sertifikası kullanırsınız.</p>
+
+  <p>Şimdi <span class="hl">Authorization Server</span>'a geçelim. spring-cloud/authorization-server projesini oluşturuyoruz. Bu proje <span class="hl">Spring Authorization Server</span> kütüphanesini kullanır ve <span class="hl">OAuth2</span> ile <span class="hl">OIDC</span> <span class="pronounce">(O-ay-di-si)</span> standartlarını uygular.</p>
+
+  <p>Çalışma şekli şöyledir: Kullanıcı sisteme giriş yapıp şifresini yazar. Authorization Server şifresini doğrular ve ona bir <span class="hl">JWT Token</span> <span class="pronounce">(Cey-davıl-yu-ti To-kın)</span> verir. JWT yani JSON Web Token, içinde kullanıcının kim olduğu ve hangi yetkilere sahip olduğu yazan şifreli bir dijital belgedir. İçindeki "scope" alanı hangi işlemleri yapabileceğini belirler: product:read sadece okuma, product:write ise yazma yetkisi verir.</p>
+
+  <p>Kullanıcı Gateway'e her istek attığında bu Token'ı gönderir. Gateway Token'ın geçerli olup olmadığını kontrol eder. Token yoksa veya süresi dolmuşsa: 401 Unauthorized <span class="pronounce">(An-oto-rayzd)</span> döner. Token geçerliyse: isteği iç servislerimize yönlendirir.</p>
+
+  <p>Docker Compose dosyamızda auth-server servisinin bir <span class="hl">healthcheck</span> tanımı var: <span class="hl">wget ile http://localhost:4004/actuator/health</span> adresini kontrol ediyor. Gateway, auth-server sağlıklı olmadan başlamaz — bu sıralama çok önemli.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 13 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 13 — Kafka ile İleri Seviye Mesajlaşma ve Partitioning (83:00 – 88:00)</h2>
+
+<div class="scene">
+  🎬 docker-compose-kafka.yml dosyası açılıyor. İki farklı Product Service instance ayağa kalktığı gösteriliyor. Partitioning kavramı anlatılıyor.
+</div>
+
+<div class="speech">
+  <p>Projemizde RabbitMQ varsayılan olarak kullanılıyor. Ama gerçek dünyada yüksek trafik altında <span class="hl">Apache Kafka</span> tercih edilir. Ayrı bir docker-compose dosyamız var: <span class="hl">docker-compose-kafka.yml</span>.</p>
+
+  <p>Bu dosyada çok ilginç bir yapı göreceksiniz: Her servisten <span class="hl">iki tane instance</span> çalıştırılıyor! Mesela product servisi hem product hem de product-p1 olarak tanımlanmış. Birinin profili <span class="hl">streaming_instance_0</span>, diğerininki <span class="hl">streaming_instance_1</span>. Bu, <span class="hl">Partitioning</span> <span class="pronounce">(Par-ti-şın-ing)</span> adı verilen tekniği kullanmak içindir.</p>
+
+  <p>Kafka, mesajları <span class="hl">Partition</span> <span class="pronounce">(Par-ti-şın)</span> adı verilen bölümlere ayırır. Bir konunun (Topic) birden fazla Partition'ı olabilir. Her Partition, bir Consumer instance tarafından okunur. Composite service mesaj gönderirken <span class="hl">partition-key-expression: headers['partitionKey']</span> ayarıyla hangi Partition'a gideceğini belirler. <span class="hl">partition-count: 2</span> ile 2 partition tanımlıdır. Böylece aynı productId'ye sahip tüm mesajlar her zaman aynı Partition'a gider ve sıralı işlenir. Farklı productId'ler ise paralel olarak farklı instance'larda eş zamanlı işlenir. Performans ikiye katlanır!</p>
+
+  <p>Kafka da Zookeeper <span class="pronounce">(Zu-ki-pır)</span> gerektiriyor. docker-compose-kafka.yml içinde <span class="hl">confluentinc/cp-kafka:7.9.0</span> ve <span class="hl">confluentinc/cp-zookeeper:7.9.0</span> imajları tanımlı. Kafka port 9092'de, Zookeeper port 2181'de çalışıyor.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 14 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 14 — Kubernetes, Helm ve Production'a Hazırlık (88:00 – 96:00)</h2>
+
+<div class="scene">
+  🎬 'kubernetes' klasörü detaylıca açılıyor. hands-on-namespace.yml, helm/common, helm/components ve helm/environments klasörleri tek tek geziliyor.
+</div>
+
+<div class="speech">
+  <p>Docker Compose ile her şey kendi bilgisayarınızda çalışıyor. Ama bunu AWS, Google Cloud veya Azure üzerinde yüzlerce sunucuda çalıştırmak istediğimizde <span class="hl">Kubernetes</span> kullanıyoruz.</p>
+
+  <p>İlk dosyamız <span class="hl">hands-on-namespace.yml</span>. Bu dosya Kubernetes'te bizim projemize özel bir <span class="hl">Namespace</span> <span class="pronounce">(Neym-speys)</span> yaratıyor — adı 'hands-on'. Namespace, büyük bir arsa içinde size ayrılmış bir bahçe gibidir. Projenizdeki tüm kaynaklar bu bahçenin içinde kalır ve diğer projelerin kaynaklarıyla karışmaz. Dikkat edin: bu Namespace'in labels kısmında <span class="hl">istio-injection: enabled</span> yazdık. Bu, Istio'ya "Bu namespace'teki tüm Pod'lara otomatik olarak Sidecar Proxy <span class="pronounce">(Sayd-kar Prok-si)</span> enjekte et" demektir.</p>
+
+  <p>Helm yapısını inceleyelim. 3 klasör var: <span class="hl">common</span>, <span class="hl">components</span> ve <span class="hl">environments</span>.</p>
+
+  <p><span class="hl">common</span> klasörü bir Helm Library Chart <span class="pronounce">(Layb-re-ri Çart)</span>. Chart.yaml içinde <span class="hl">type: library</span> yazıyor — bu çalıştırılabilir değil, ortak şablon tanımları içerir. values.yaml içindeki varsayılan değerler çok öğretici: <span class="hl">replicaCount: 1</span> — başlangıçta her servisten 1 kopya. <span class="hl">image.pullPolicy: Never</span> — yerel testlerde imajı internetten çekme, lokalde kullan. <span class="hl">containerPort: 80</span> — Container'lar 80 portunda dinler. <span class="hl">resources.limits.memory: 400Mi</span> — her Container maksimum 400 MB RAM kullanabilir. <span class="hl">livenessProbe</span> ve <span class="hl">readinessProbe</span> <span class="pronounce">(Layv-nıs Prob / Re-di-nıs Prob)</span> Actuator health endpoint'ini kontrol ediyor. LivenessProbe başarısız olursa Kubernetes Pod'u öldürür ve yenisini başlatır. ReadinessProbe başarısız olursa Pod'a trafik yönlendirmez.</p>
+
+  <p><span class="hl">components</span> klasöründe her servis için ayrı bir Helm Chart var: auth-server, mongodb, mysql, product, product-composite, rabbitmq, recommendation, review. Ve dikkat edin: <span class="hl">product-green</span>, <span class="hl">recommendation-green</span>, <span class="hl">review-green</span> adlarında extra Chart'lar var! Bunlar <span class="hl">Blue-Green Deployment</span> <span class="pronounce">(Blu-Grin Dip-loy-mınt)</span> stratejisi için. Yeni versiyonu "green" olarak deploy edip, trafiği kademeli olarak yönlendiriyorsunuz. Sorun çıkarsa anında eski "blue" versiyonuna dönersiniz.</p>
+
+  <p><span class="hl">environments</span> klasöründe 4 alt klasör var: <span class="hl">dev-env</span> — geliştirme ortamı. <span class="hl">prod-env</span> — üretim ortamı. <span class="hl">istio-system</span> — Istio yapılandırması. <span class="hl">logging</span> — merkezi log toplama yapılandırması.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 15 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 15 — Istio Service Mesh, Distributed Tracing ve Observability (96:00 – 104:00)</h2>
+
+<div class="scene">
+  🎬 istio-tracing.yml ve istio-telemetry.yml dosyaları gösteriliyor. EFK ve Grafana klasörleri açılıyor. Zipkin arayüzünden bir izleme örneği gösteriliyor.
+</div>
+
+<div class="speech">
+  <p>Kubernetes servisleri yönetiyor ama aralarındaki ağ trafiğini kim yönetecek? Cevap: <span class="hl">Istio Service Mesh</span> <span class="pronounce">(İs-ti-yo Sör-vis Meş)</span>.</p>
+
+  <p>Istio, her Pod'un yanına gizli bir <span class="hl">Sidecar Proxy</span> <span class="pronounce">(Sayd-kar Prok-si)</span> ekler. Servislerimiz birbirleriyle konuşurken tüm trafik bu Proxy üzerinden geçer. Java kodumuzda hiçbir değişiklik yapılmaz! Istio'nun sağladığı avantajlar:</p>
+
+  <p>Birincisi: <span class="hl">mTLS</span> <span class="pronounce">(em-ti-el-es)</span> — Mutual TLS. Servisler arası tüm iletişim otomatik olarak şifrelenir. Bir hacker Kubernetes ağına sızsa bile mesajları okuyamaz.</p>
+
+  <p>İkincisi: <span class="hl">Traffic Management</span> <span class="pronounce">(Tre-fik Me-nic-mınt)</span> — Trafiği yüzdesel olarak bölebilirsiniz. 'kubernetes/routing-tests' klasöründeki dosyalar tam da bunu yapar. Yeni bir servis versiyonunu %10 trafikle test eder, sorun yoksa kademeli olarak %100'e çıkarırsınız.</p>
+
+  <p>Üçüncüsü: <span class="hl">Resilience</span> — Istio kendi Retry ve Circuit Breaker mantığını uygulayabilir. Bu durumda Java'daki Resilience4j'yi kapatırız. ResilienceConfig.java'da gördüğümüz <span class="hl">app.resilience.enabled</span> ayarı işte bunun için.</p>
+
+  <p>Peki tüm bu sistemi nasıl izleyeceğiz? kubernetes klasöründeki <span class="hl">istio-tracing.yml</span> dosyası Istio'ya Zipkin bağlantısını söylüyor. <span class="hl">extensionProviders</span> içinde zipkin tanımlı ve adresi <span class="hl">zipkin.istio-system.svc.cluster.local:9411</span>. Bu sayede servisler arasındaki her istek otomatik olarak izlenir ve Zipkin arayüzünde görselleştirilir.</p>
+
+  <p><span class="hl">EFK Stack</span> <span class="pronounce">(İ-ef-key Stek)</span> yani Elasticsearch <span class="pronounce">(İ-las-tik-sörç)</span>, Fluentd <span class="pronounce">(Flu-ınt-di)</span> ve Kibana <span class="pronounce">(Ki-ba-na)</span>: kubernetes/efk klasöründe tanımlıdır. Fluentd tüm Container loglarını toplar, Elasticsearch'e depolar, Kibana ile tarayıcıdan arayarak inceleyebilirsiniz. Böylece tek tek Pod'lara bağlanıp log okumak zorunda kalmazsınız!</p>
+
+  <p><span class="hl">Grafana</span> <span class="pronounce">(Gra-fa-na)</span>: kubernetes/grafana klasöründe tanımlıdır. Micrometer Prometheus <span class="pronounce">(Pro-mi-ti-us)</span> metrikleriyle — hatırlayın her serviste 'micrometer-registry-prometheus' bağımlılığını eklemiştik — CPU kullanımı, yanıt süreleri, hata oranları gibi verileri anlık grafiklerle izlersiniz.</p>
+
+  <p>Bu üçlü sayesinde — Zipkin (izleme), EFK (loglar), Grafana (metrikler) — sisteminiz tam bir gözlemlenebilirlik (<span class="hl">Observability</span> <span class="pronounce">(Ob-zır-va-bi-li-ti)</span>) kazanır.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 16 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 16 — Uçtan Uca Test: test-em-all.ps1 (104:00 – 110:00)</h2>
+
+<div class="scene">
+  🎬 Terminal penceresi tam ekran açılıyor. .\test-em-all.ps1 scripti çalıştırılıyor. Yeşil "Test OK" mesajları art arda akıyor.
+</div>
+
+<div class="speech">
+  <p>Elimizde devasa bir sistem var: 4 Microservice, 2 farklı veritabanı, 1 Message Broker, 1 API Gateway, 1 Authorization Server, 1 Distributed Tracing aracı. Bunların hepsinin doğru çalıştığını nasıl ispatlayacağız?</p>
+
+  <p>Root klasörde <span class="hl">test-em-all.ps1</span> <span class="pronounce">(test-em-ol pi-es-van)</span> adında bir PowerShell <span class="pronounce">(Pa-vır-şel)</span> scripti var. Bu script otomatik bir QA <span class="pronounce">(Kyu-ey)</span> mühendisi gibi çalışır.</p>
+
+  <p>İlk adım: Script, Authorization Server'a gidip <span class="hl">client_credentials</span> <span class="pronounce">(kılayınt-kri-den-şılz)</span> akışıyla bir Access Token alır. Doğru şifre ile Token alabildiğini, yanlış şifre ile 401 Unauthorized aldığını test eder.</p>
+
+  <p>İkinci adım: Alınan Token ile Gateway üzerinden <span class="hl">POST /product-composite</span> endpoint'ine istek atarak yeni ürünler, yorumlar ve öneriler oluşturur. Sonra <span class="hl">GET /product-composite/{id}</span> ile bu verileri sorgulayarak doğru dönüp dönmediğini kontrol eder.</p>
+
+  <p>Üçüncü adım: <span class="hl">DELETE</span> isteği atarak ürünü siler ve ardından tekrar GET ile aradığında 404 Not Found aldığını doğrular.</p>
+
+  <p>Dördüncü ve en heyecanlı adım: <span class="hl">Circuit Breaker testi!</span> Script, Product service'e <span class="hl">?delay=3</span> parametresiyle kasıtlı olarak 3 saniye gecikme ekler. TimeLimiter'ın süresi 2 saniye olduğu için bu istek zaman aşımına uğrar. Ardından <span class="hl">?faultPercent=100</span> ile her isteğin hata fırlatmasını sağlar. Birkaç başarısız istekten sonra Circuit Breaker şalteri düşer ve Fallback <span class="pronounce">(Fol-bek)</span> devreye girer. Script, dönen yanıtın Fallback yanıtı olduğunu doğrular.</p>
+
+  <p>Eğer terminalinizde art arda yeşil 'Test OK' yazıları akıyorsa, tüm sisteminiz kusursuz çalışıyor demektir!</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!-- BÖLÜM 17 -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<h2>📌 Bölüm 17 — Kapanış: Neler Öğrendik? (110:00 – 115:00)</h2>
+
+<div class="scene">
+  🎬 Kameraya dönüyorsun. Arkada tamamlanmış klasör yapısı tüm alt klasörleriyle görünüyor.
+</div>
+
+<div class="speech">
+  <p>Derin bir nefes alın çünkü inanılmaz bir yolculuk atlattık! Gelin neler öğrendiğimizi gözden geçirelim:</p>
+
+  <p><span class="hl">Multi-Module Maven</span> ile 8 projeyi tek bir çatı altında yönetmeyi öğrendik. <span class="hl">API ve Util</span> modülleriyle ortak sözleşmeler ve yardımcı araçlar oluşturduk. <span class="hl">Spring WebFlux</span> ile Reactive Microservice'ler yazdık. <span class="hl">Mono ve Flux</span> ile Non-blocking programlamayı uyguladık. <span class="hl">MongoDB ve MySQL</span> ile Polyglot Persistence prensibini hayata geçirdik. <span class="hl">MapStruct</span> ile Entity-DTO dönüşümünü otomatikleştirdik. <span class="hl">Spring Cloud Stream</span> ile Event-Driven Architecture kurduk. <span class="hl">RabbitMQ ve Kafka</span> ile asenkron mesajlaşma yaptık. Dead Letter Queue ile hatalı mesajları güvenle sakladık. <span class="hl">Resilience4j</span> ile Circuit Breaker, TimeLimiter ve Retry mekanizmaları kurduk. <span class="hl">Spring Cloud Gateway</span> ile tek bir giriş noktası oluşturduk. <span class="hl">OAuth2 ve JWT</span> ile güvenliği sağladık. <span class="hl">Docker Compose</span> ile tüm sistemi tek komutla ayağa kaldırdık. <span class="hl">Kubernetes ve Helm</span> ile bulut ortamına hazırladık. <span class="hl">Istio Service Mesh</span> ile ağ güvenliğini ve trafik yönetimini öğrendik. <span class="hl">Zipkin, EFK ve Grafana</span> ile tam Observability kurduk.</p>
+
+  <p>Eğer bu eğitimi baştan sona izlediyseniz ve adım adım uyguladıysanız, artık sektördeki en yetkin Microservices mimarlarının kullandığı araçları ve prensipleri biliyorsunuz. Bu bilgi, yazılım mülakatlarında sizi ciddi şekilde öne çıkaracak.</p>
+
+  <p>Tüm kaynak kodlara açıklamadaki GitHub <span class="pronounce">(Git-hab)</span> linkinden ulaşabilirsiniz. Kurulum sırasında herhangi bir hatayla karşılaşırsanız yorumlarda sorun, yardımcı olmaktan mutluluk duyarım. Videoyu beğenmeyi ve kanala abone olmayı lütfen unutmayın. Bir sonraki projede görüşmek üzere — kodla kalın, kendinize çok iyi bakın!</p>
+</div>
+
+<div class="bottom-padding"></div>
 </body>
 </html>

@@ -44,4 +44,4 @@ CLAUDE.local.md
 .claude/rules/placeholder.txt
 .claude/skills/placeholder.txt
 .claude/agents/placeholder.txt
-/target/
+**/target/
